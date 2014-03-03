@@ -1,8 +1,5 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
-
-
 use Avetmiss\Fields\Numeric;
 use Avetmiss\Nat\Fixture\Nat120;
 

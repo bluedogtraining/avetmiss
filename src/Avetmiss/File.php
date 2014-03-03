@@ -1,6 +1,5 @@
 <?php namespace Avetmiss;
 
-use Avetmiss\Fields\Field;
 use Avetmiss\Row;
 
 
@@ -9,7 +8,14 @@ class File
 
 	const SAVING_PATH = './';
 
+	protected $name;
 	protected $rows = [];
+
+
+	public function __construct($name)
+	{
+		$this->name = $name;
+	}
 
 
 	/**
@@ -29,7 +35,7 @@ class File
 	 */
 	public function export()
 	{
-		$file = fopen(self::SAVING_PATH . $this->getFileName(), 'w');
+		$file = fopen(self::SAVING_PATH . $this->name, 'w');
 
 		foreach($this->rows as $row)
 		{

@@ -1,4 +1,4 @@
-<?php namespace Avetmiss\V7;
+<?php namespace Avetmiss\Nat\V7;
 
 use Avetmiss\Row;
 use Avetmiss\Fields\Numeric;

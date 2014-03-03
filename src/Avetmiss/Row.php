@@ -3,7 +3,7 @@
 use Avetmiss\File;
 
 
-class Row
+abstract class Row
 {
 
 	protected $fields = [];

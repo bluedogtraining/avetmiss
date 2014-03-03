@@ -46,6 +46,9 @@ abstract class Field
      */
     public function export($value)
     {
+        // cut off the string if to long
+        $value = substr($value, 0, $this->lenght);
+
     	// add spaces at the end of the string if required to match the proper lenght
     	return str_pad($value, $this->lenght);
     }

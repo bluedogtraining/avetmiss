@@ -4,5 +4,5 @@
 interface FormatInterface
 {
 	
-    public function validateFormat();
+    public function validateFormat($value);
 }

@@ -4,7 +4,7 @@ use Avetmiss\Fields\Field;
 use Avetmiss\Row;
 
 
-abstract class File
+class File
 {
 
 	const SAVING_PATH = './';

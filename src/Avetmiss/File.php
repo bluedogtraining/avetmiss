@@ -38,13 +38,4 @@ class File
 
 		fclose($file);
 	}
-
-
-	/**
-	 *	Returns the name of the file such as nat120.txt
-	 */
-	protected function getFileName()
-	{
-		return strtolower(str_replace('.php', '', get_called_class())) .'.txt';
-	}
 }

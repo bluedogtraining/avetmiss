@@ -8,14 +8,7 @@ class File
 
 	const SAVING_PATH = './';
 
-	protected $name;
 	protected $rows = [];
-
-
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
 
 
 	/**
@@ -23,19 +16,21 @@ class File
 	 */
 	public function addRow(Row $row)
 	{
-		if($row->isValid())
+		if(!$row->isValid())
 		{
-			$this->rows[] = $row;
+			throw new \Exception('Cant add invalid row');
 		}
+
+		$this->rows[] = $row;
 	}
 
 
 	/**
 	 *	Exports the rows to a file
 	 */
-	public function export()
+	public function export($name)
 	{
-		$file = fopen(self::SAVING_PATH . $this->name, 'w');
+		$file = fopen(self::SAVING_PATH . $name, 'w');
 
 		foreach($this->rows as $row)
 		{

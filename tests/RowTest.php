@@ -50,4 +50,15 @@ class RowTest extends TestCase
 		$row = new NatEmpty;
 		$row->getField('foo');
 	}
+
+
+	public function testToString()
+	{
+		$row = new NatPopulated;
+		$row->foo = '23324';
+		$row->bar = 'foo';
+		$row->wee = '01122014';
+
+		$this->assertEquals('23324foo               01122014', $row->__toString());
+	}
 }

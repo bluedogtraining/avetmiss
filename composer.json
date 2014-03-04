@@ -16,6 +16,9 @@
         "phpunit/phpunit": "*"
     },
     "autoload": {
-        "psr-0": { "Avetmiss": "src/" }
+        "psr-0": { 
+            "Avetmiss": "src/",
+            "Fixture": "tests/"
+        }
     }
 }

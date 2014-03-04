@@ -2,13 +2,13 @@
 
 use Avetmiss\File;
 use Avetmiss\Fields\Field;
+use Avetmiss\UnexistingFieldException;
 
 
 abstract class Row
 {
 
 	protected $fields = [];
-	protected $data = [];
 
 
 	/**
@@ -17,6 +17,8 @@ abstract class Row
 	public function addField(Field $field)
 	{
 		$this->fields[$field->getName()] = $field;
+		
+		return $this;
 	}
 
 
@@ -27,21 +29,10 @@ abstract class Row
 	{
 		if(!array_key_exists($name, $this->fields))
 		{
-			throw new \Exception($name .' doesn\'t exist in '. get_called_class());
+			throw new UnexistingFieldException($name .' doesn\'t exist in '. get_called_class());
 		}
 
 		return $this->fields[$name];
-	}
-
-
-	public function getData($name)
-	{
-		if(!array_key_exists($name, $this->data))
-		{
-			throw new \Exception($name .' doesn\'t exist in '. get_called_class());
-		}
-
-		return $this->data[$name];
 	}
 
 
@@ -50,17 +41,8 @@ abstract class Row
 	 */
 	public function __set($name, $value)
 	{
-		// get the field about to be populated and validate the value
 		$field = $this->getField($name);
-
-		if($field->isValid($value))
-		{
-			$this->data[$name] = $value;
-
-			return true;
-		}
-
-		return false;
+		$field->setValue($value);
 	}
 
 
@@ -69,6 +51,14 @@ abstract class Row
 	 */
 	public function isValid()
 	{
+		foreach($this->fields as $field)
+		{
+			if(!$field->isValid())
+			{
+				return false;
+			}
+		}
+
 		return true;
 	}
 
@@ -82,7 +72,7 @@ abstract class Row
 
 		foreach($this->fields as $name => $field)
 		{
-			$string .= $field->export($this->data[$name]);
+			$string .= $field->render();
 		}
 
 		return $string;

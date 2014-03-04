@@ -2,6 +2,7 @@
 
 use Avetmiss\Fields\Numeric;
 use Fixture\NatEmpty;
+use Fixture\NatPopulated;
 
 
 class RowTest extends TestCase

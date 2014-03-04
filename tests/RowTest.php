@@ -1,7 +1,7 @@
 <?php
 
 use Avetmiss\Fields\Numeric;
-use Avetmiss\Nat\Fixture\Nat120;
+use Fixture\NatEmpty;
 
 
 class RowTest extends TestCase
@@ -10,56 +10,44 @@ class RowTest extends TestCase
 
 	public function testAddAndGetField()
 	{
-		$field = new Numeric([
-			'name' => 'foo',
-			'lenght' => 10,
-		]);
-
-		$row = new Nat120;
-		$row->addField($field);
+		$row = new NatEmpty;
+		$row->addField(new Numeric('foo', 10));
 
 		$this->assertEquals('foo', $row->getField('foo')->getName());
 		$this->assertEquals(10, $row->getField('foo')->getLenght());
 	}
 
 
+	public function testIsValidWithInvalidFields()
+	{
+		$field = $this->getMockBuilder('Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
+		$field->expects($this->once())->method('isValid')->will($this->returnValue(false));
+
+		$row = new NatEmpty();
+		$row->addField($field);
+
+		$this->assertFalse($row->isValid());
+	}
+
+
+	public function testIsValidWithValidFields()
+	{
+		$field = $this->getMockBuilder('Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
+		$field->expects($this->once())->method('isValid')->will($this->returnValue(true));
+
+		$row = new NatEmpty();
+		$row->addField($field);
+
+		$this->assertTrue($row->isValid());
+	}
+
+
 	/**
-     * @expectedException Exception
+     * @expectedException Avetmiss\UnexistingFieldException
      */
     public function testGetInexistantFieldThrowsException()
 	{
-		$row = new Nat120;
+		$row = new NatEmpty;
 		$row->getField('foo');
-	}
-
-
-	public function testSetShouldAllowValidFields()
-	{
-		$field = $this->getMock('Avetmiss\Fields\Any');
-		$field->expects($this->once())->method('getName')->will($this->returnValue('foo'));
-		$field->expects($this->once())->method('isValid')->will($this->returnValue(true));
-
-		$row = new Nat120;
-		$row->addField($field);
-
-		$row->foo = 'foo';
-
-		$this->assertEquals(1, count(PHPUnit_Framework_Assert::readAttribute($row, 'data')));
-	}
-
-
-	public function testSetShouldNotAllowInvalidFields()
-	{
-		$field = $this->getMock('Avetmiss\Fields\Any');
-		$field->expects($this->once())->method('getName')->will($this->returnValue('foo'));
-		$field->expects($this->once())->method('isValid')->will($this->returnValue(false));
-
-		$row = new Nat120;
-		$row->addField($field);
-
-		// because isValid returned false, we don't accept it
-		$row->foo = 'foo';
-
-		$this->assertEquals(0, count(PHPUnit_Framework_Assert::readAttribute($row, 'data')));
 	}
 }

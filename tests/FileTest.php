@@ -1,17 +1,22 @@
 <?php
 
 use Avetmiss\File;
+use Avetmiss\Row;
+use Fixture\NatPopulated;
 
 
 class FileTest extends TestCase
 {
 
 
-	public function testAddRow()
+	/**
+	 * @expectedException Exception
+	 */
+	public function testAddInvalidRow()
 	{
 		$row = $this->getMock('Avetmiss\Row');
 
-		$file = new File('nat120.txt');
+		$file = new File;
 		$file->addRow($row);
 
 		$this->assertTrue(true);
@@ -20,11 +25,15 @@ class FileTest extends TestCase
 
 	public function testExport()
 	{
-		$row = $this->getMock('Avetmiss\Row');
+		$file = new File;
 
-		$file = new File('nat120.txt');
+		$row = new NatPopulated;
+		$row->foo = '23324';
+		$row->bar = 'foo';
+		$row->wee = '01122014';
+
 		$file->addRow($row);
 
-		$file->export();
+		$file->export('nat120.txt');
 	}
 }

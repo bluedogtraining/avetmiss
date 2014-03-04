@@ -8,7 +8,7 @@ class Any extends Field implements FormatInterface
 {
     
 
-    public function validateFormat($value)
+    public function isFormatValid()
     {
     	return true;
     }

@@ -1,17 +1,20 @@
 <?php namespace Avetmiss\Fields;
 
+use Avetmiss\Fields\InvalidValueException;
+
 
 abstract class Field
 {
     
     protected $name;
     protected $lenght;
+    protected $value = null;
 
 
-    public function __construct(array $data = null)
+    public function __construct($name, $lenght)
     {
-        $this->name = $data['name'];
-        $this->lenght = $data['lenght'];
+        $this->name = $name;
+        $this->lenght = $lenght;
     }
 
 
@@ -27,25 +30,35 @@ abstract class Field
     }
 
 
-    /**
-     * Checks if a value is valid
-     */
-    public function isValid($value)
+    public function setValue($value)
     {
-    	if(!$this->validateFormat())
-    	{
-    		return false;
-    	}
-    	
-    	return true;
+        $this->value = $value;
+
+        if(!$this->isValid())
+        {
+            $this->value = null;
+            throw new InvalidValueException($value .' is not a valid value for '. $this->name);
+        }
     }
 
 
     /**
-     * Exports $value according to the field structure
+     * Checks if a value is valid
      */
-    public function export($value)
+    public function isValid()
     {
+    	return $this->isFormatValid();
+    }
+
+
+    /**
+     * Renders $value according to the field structure
+     */
+    public function render()
+    {
+        // get a copy of the value, we don't actually want to alter it
+        $value = $this->value;
+
         // cut off the string if to long
         $value = substr($value, 0, $this->lenght);
 

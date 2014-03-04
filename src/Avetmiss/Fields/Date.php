@@ -8,8 +8,14 @@ class Date extends Field implements FormatInterface
 {
     
 
-    public function validateFormat($value)
+    public function isFormatValid()
     {
-    	return true;
+    	$string = $this->value;
+
+    	$day = substr($string, 0, 2);
+    	$month = substr($string, 2, 2);
+    	$year = substr($string, 4, 4);
+
+    	return checkdate($month, $day, $year);
     }
 }

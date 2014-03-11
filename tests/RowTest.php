@@ -1,6 +1,6 @@
 <?php
 
-use Avetmiss\Fields\Numeric;
+use Avetmiss\Fields\Field;
 use Fixture\NatEmpty;
 use Fixture\NatPopulated;
 
@@ -12,7 +12,7 @@ class RowTest extends TestCase
 	public function testAddAndGetField()
 	{
 		$row = new NatEmpty;
-		$row->addField(new Numeric('foo', 10));
+		$row->addField(Field::make('numeric')->name('foo')->lenght(10));
 
 		$this->assertEquals('foo', $row->getField('foo')->getName());
 		$this->assertEquals(10, $row->getField('foo')->getLenght());

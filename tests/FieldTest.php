@@ -1,8 +1,6 @@
 <?php
 
-use Avetmiss\Fields\Date;
-use Avetmiss\Fields\Numeric;
-use Avetmiss\Fields\Any;
+use Avetmiss\Fields\Field;
 
 
 class FieldTest extends TestCase
@@ -11,7 +9,7 @@ class FieldTest extends TestCase
 
 	public function testExportSpacesPad()
 	{
-		$field = new Any('foo', 10);
+		$field = Field::make('any')->name('foo')->lenght(10);
 		$field->setValue('bar');
 
 		// bar with 7 spaces
@@ -21,7 +19,7 @@ class FieldTest extends TestCase
 
 	public function testCutIfLenghtIsToLong()
 	{
-		$field = new Any('foo', 10);
+		$field = Field::make('any')->name('foo')->lenght(10);
 
 		// 12 characters
 		$field->setValue('foobarfoobar');
@@ -35,7 +33,7 @@ class FieldTest extends TestCase
 	 */
 	public function testInvalidDateFormat()
 	{
-		$field = new Date('foo', 8);
+		$field = Field::make('date')->name('foo')->lenght(8);
 		$field->setValue('foo');
 
 		$this->assertFalse($field->isValid());
@@ -47,7 +45,7 @@ class FieldTest extends TestCase
 	 */
 	public function testValidDateFormat()
 	{
-		$field = new Date('foo', 8);
+		$field = Field::make('date')->name('foo')->lenght(8);
 		$field->setValue(02032014);
 
 		$this->assertTrue($field->isValid());

@@ -28,12 +28,16 @@ class FileTest extends TestCase
 		$file = new File;
 
 		$row = new NatPopulated;
-		$row->foo = '23324';
-		$row->bar = 'foo';
-		$row->wee = '01122014';
+		$row->foo = '888';
+		$row->bar = 'bar foo';
+		$row->wee = '30112000';
 
 		$file->addRow($row);
 
 		$file->export('nat120.txt');
+
+		$this->assertEquals("888  bar foo           30112000\n", file_get_contents('nat120.txt'));
+
+		unlink('nat120.txt');
 	}
 }

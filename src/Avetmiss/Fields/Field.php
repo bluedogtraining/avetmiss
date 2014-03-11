@@ -6,15 +6,46 @@ use Avetmiss\Fields\InvalidValueException;
 abstract class Field
 {
     
-    protected $name;
-    protected $lenght;
+    protected $name = null;
+    protected $lenght = null;
     protected $value = null;
+    protected $in = null;
 
 
-    public function __construct($name, $lenght)
+    /**
+     * Used to generate fields in a fluent way
+     *
+     * ex. Field::make('any')->name('training_organisation_delivery_location_id')->lenght(10)->in(array);
+     */
+    public static function make($type)
+    {
+        $field = 'Avetmiss\Fields\\'. ucfirst($type);
+
+        return new $field;
+    }
+
+
+    public function name($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+
+    public function lenght($lenght)
+    {
         $this->lenght = $lenght;
+
+        return $this;
+    }
+
+
+    public function in(array $array)
+    {
+        $this->in = $array;
+
+        return $this;
     }
 
 
@@ -47,6 +78,11 @@ abstract class Field
      */
     public function isValid()
     {
+        if(!is_null($this->in))
+        {
+            return in_array($this->value, $this->in);
+        }
+
     	return $this->isFormatValid();
     }
 

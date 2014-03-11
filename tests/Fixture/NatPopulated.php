@@ -1,9 +1,7 @@
 <?php namespace Fixture;
 
 use Avetmiss\Row;
-use Avetmiss\Fields\Any;
-use Avetmiss\Fields\Numeric;
-use Avetmiss\Fields\Date;
+use Avetmiss\Fields\Field;
 
 
 class NatPopulated extends Row
@@ -11,8 +9,8 @@ class NatPopulated extends Row
 
 	public function __construct()
 	{
-		$this->addField(new Numeric('foo', 5))
-			 ->addField(new Any('bar', 18))
-			 ->addField(new Date('wee', 8));
+		$this->addField(Field::make('numeric')->name('foo')->lenght(5))
+			 ->addField(Field::make('any')->name('bar')->lenght(18))
+			 ->addField(Field::make('date')->name('wee')->lenght(8));
 	}
 }

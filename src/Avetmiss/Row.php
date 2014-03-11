@@ -46,6 +46,12 @@ abstract class Row
 	}
 
 
+	public function __get($name)
+	{
+		return $this->getField($name)->getValue();
+	}
+
+
 	/**
 	 *	Checks if the row' values are valid with the structure
 	 */

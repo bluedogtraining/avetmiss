@@ -73,6 +73,12 @@ abstract class Field
     }
 
 
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+
     /**
      * Checks if a value is valid
      */

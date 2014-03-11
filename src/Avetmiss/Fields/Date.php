@@ -12,9 +12,9 @@ class Date extends Field implements FormatInterface
     {
     	$string = $this->value;
 
-    	$day = substr($string, 0, 2);
-    	$month = substr($string, 2, 2);
-    	$year = substr($string, 4, 4);
+    	$day = (int)substr($string, 0, 2);
+    	$month = (int)substr($string, 2, 2);
+    	$year = (int)substr($string, 4, 4);
 
     	return checkdate($month, $day, $year);
     }

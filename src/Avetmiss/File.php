@@ -6,9 +6,14 @@ use Avetmiss\Row;
 class File
 {
 
-	const SAVING_PATH = './';
-
 	protected $rows = [];
+	protected $time;
+
+
+	public function __construct()
+	{
+		$this->time = time();
+	}
 
 
 	/**
@@ -30,7 +35,7 @@ class File
 	 */
 	public function export($name)
 	{
-		$file = fopen(self::SAVING_PATH . $name, 'w');
+		$file = fopen($name, 'w');
 
 		foreach($this->rows as $row)
 		{
@@ -38,5 +43,11 @@ class File
 		}
 
 		fclose($file);
+	}
+
+
+	public function getTime()
+	{
+		return time() - $this->time;
 	}
 }

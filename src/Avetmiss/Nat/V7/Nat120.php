@@ -1,9 +1,7 @@
 <?php namespace Avetmiss\Nat\V7;
 
 use Avetmiss\Row;
-use Avetmiss\Fields\Any;
-use Avetmiss\Fields\Numeric;
-use Avetmiss\Fields\Date;
+use Avetmiss\Fields\Field;
 
 
 class Nat120 extends Row

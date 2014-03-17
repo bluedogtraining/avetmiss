@@ -8,6 +8,7 @@ abstract class Field
     protected $lenght = null;
     protected $value = null;
     protected $in = null;
+    protected $pad = null;
 
 
     /**
@@ -47,6 +48,14 @@ abstract class Field
     public function in(array $array)
     {
         $this->in = $array;
+
+        return $this;
+    }
+
+
+    public function pad($character = '')
+    {
+        $this->pad = $character;
 
         return $this;
     }
@@ -106,6 +115,12 @@ abstract class Field
 
         // cut off the string if to long
         $value = substr($value, 0, $this->lenght);
+
+        // add pad if selected
+        if(!is_null($this->pad))
+        {
+            str_pad($value, $this->lenght, $this->pad, STR_PAD_LEFT);
+        }
 
     	// add spaces at the end of the string if required to match the proper lenght
     	return str_pad($value, $this->lenght);

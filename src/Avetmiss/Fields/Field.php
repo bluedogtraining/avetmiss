@@ -1,7 +1,5 @@
 <?php namespace Avetmiss\Fields;
 
-use Avetmiss\Fields\InvalidValueException;
-
 
 abstract class Field
 {
@@ -35,6 +33,11 @@ abstract class Field
 
     public function lenght($lenght)
     {
+        if(!is_int($lenght))
+        {
+            throw new \InvalidArgumentException('lenght should be an int');
+        }
+
         $this->lenght = $lenght;
 
         return $this;
@@ -68,7 +71,7 @@ abstract class Field
         if(!$this->isValid())
         {
             $this->value = null;
-            throw new InvalidValueException($value .' is not a valid value for '. $this->name);
+            throw new \InvalidArgumentException($value .' is not a valid value for '. $this->name);
         }
     }
 

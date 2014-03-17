@@ -6,6 +6,31 @@ use Avetmiss\Fields\Field;
 class FieldTest extends TestCase
 {
 
+	// make, lenght, name, in should all return a Field object
+	public function testFluentBuilder()
+	{
+		$field = Field::make('any');
+		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+
+		$field->lenght(10);
+		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+
+		$field->name('foo');
+		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+
+		$field->in(['foo', 'bar']);
+		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+	}
+
+
+	/**
+	 * @expectedException \InvalidArgumentException
+	 */
+	public function testLenghtShouldBeInt()
+	{
+		$field = Field::make('any')->lenght('5');
+	}
+
 
 	public function testExportSpacesPad()
 	{

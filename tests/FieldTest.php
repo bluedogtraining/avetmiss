@@ -47,13 +47,10 @@ class FieldTest extends TestCase
 	}
 
 
-	/**
-	 * @expectedException Exception
-	 */
 	public function testValidDateFormat()
 	{
 		$field = Field::make('date')->name('foo')->lenght(8);
-		$field->setValue(02032014);
+		$field->setValue('02032014');
 	}
 	
 

@@ -20,6 +20,37 @@ class FieldTest extends TestCase
 
 		$field->in(['foo', 'bar']);
 		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+
+		$field->pad('x');
+		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+	}
+
+
+	public function testInWithValidValue()
+	{
+		$field = Field::make('any')->name('foo')->lenght(10)->in(['bar']);
+		$field->setValue('bar');
+
+		$this->assertEquals('bar       ', $field->render());
+	}
+
+
+	/**
+	 * @expectedException \UnexpectedValueException
+	 */
+	public function testInWithInvalidValue()
+	{
+		$field = Field::make('any')->name('foo')->lenght(10)->in(['bar']);
+		$field->setValue('fiddy');
+	}
+
+
+	public function testPad()
+	{
+		$field = Field::make('any')->name('foo')->lenght(10)->pad('.');
+		$field->setValue('bar');
+
+		$this->assertEquals('.......bar', $field->render());
 	}
 
 
@@ -60,8 +91,6 @@ class FieldTest extends TestCase
 	{
 		$field = Field::make('date')->name('foo')->lenght(8);
 		$field->setValue('foo');
-
-		$this->assertFalse($field->isValid());
 	}
 
 
@@ -72,7 +101,5 @@ class FieldTest extends TestCase
 	{
 		$field = Field::make('date')->name('foo')->lenght(8);
 		$field->setValue(02032014);
-
-		$this->assertTrue($field->isValid());
 	}
 }

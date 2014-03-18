@@ -18,8 +18,6 @@ class FileTest extends TestCase
 
 		$file = new File;
 		$file->addRow($row);
-
-		$this->assertTrue(true);
 	}
 
 

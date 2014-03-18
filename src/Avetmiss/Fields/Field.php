@@ -96,9 +96,9 @@ abstract class Field
      */
     public function isValid()
     {
-        if(!is_null($this->in))
+        if(!is_null($this->in) && !in_array($this->value, $this->in))
         {
-            return in_array($this->value, $this->in);
+            throw new \UnexpectedValueException($this->value .' could not be found in the requested config array');
         }
 
     	return $this->isFormatValid();
@@ -119,7 +119,7 @@ abstract class Field
         // add pad if selected
         if(!is_null($this->pad))
         {
-            str_pad($value, $this->lenght, $this->pad, STR_PAD_LEFT);
+            $value = str_pad($value, $this->lenght, $this->pad, STR_PAD_LEFT);
         }
 
     	// add spaces at the end of the string if required to match the proper lenght

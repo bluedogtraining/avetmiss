@@ -14,7 +14,7 @@ The idea behind the library is very simple.
 4. you add the row to the file
 5. you export the file
 
-### Code sample
+### Code example
 
     // array of student courses, pulled from the database
     protected $studentcourses;

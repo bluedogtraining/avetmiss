@@ -12,7 +12,7 @@ class FieldTest extends TestCase
 	 */
 	public function testLenghtShouldBeInt()
 	{
-		$field = Field::make('any')->lenght('5');
+		$field = Field::make('any')->lenght('z');
 	}
 
 
@@ -43,7 +43,7 @@ class FieldTest extends TestCase
 	public function testInvalidDateFormat()
 	{
 		$field = Field::make('date')->name('foo')->lenght(8);
-		$field->setValue('foo');
+		$field->setValue('bar');
 	}
 
 

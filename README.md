@@ -2,6 +2,8 @@
 
 This library is designed to help with the generation of avetmiss nat-files.
 
+[![Build
+Status](https://travis-ci.org/bluedogtraining/avetmiss.png)](https://travis-ci.org/bluedogtraining/avetmiss)
 
 ## How to use
 

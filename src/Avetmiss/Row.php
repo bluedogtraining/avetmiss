@@ -23,6 +23,18 @@ abstract class Row
 
 
 	/**
+	 * Shortcut to add multiple fields
+	 */
+	public function addFields(array $fields)
+	{
+		foreach($fields as $field)
+		{
+			$this->addField($field);
+		}
+	}
+
+
+	/**
 	 *	Returns the field named $name
 	 */
 	public function getField($name)

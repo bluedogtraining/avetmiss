@@ -10,7 +10,9 @@ class Nat100 extends Row
 
 	public function __construct()
 	{
-		$this->addField(Field::make('any')->name('client_id')->lenght(10))
-			 ->addField(Field::make('numeric')->name('prior_education_achievement')->lenght(3));
+		$this->addFields([
+			Field::make('any')->name('client_id')->lenght(10),
+			Field::make('numeric')->name('prior_education_achievement')->lenght(3),
+		]);
 	}
 }

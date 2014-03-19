@@ -10,7 +10,7 @@ class Nat030 extends Row
 
 	public function __construct()
 	{
-		$this->addField(
+		$this->addFields([
 			Field::make('any')->name('program_id')->lenght(10),
 			Field::make('any')->name('program_name')->lenght(100),
 			Field::make('numeric')->name('nominal_hours')->lenght(4),

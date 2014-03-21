@@ -28,7 +28,7 @@ class Nat080 extends Row
 			Field::make('any')->name('proficiency_in_spoken_english_id')->lenght(1),
 			Field::make('any')->name('adress_location_suburb_locality_or_town')->lenght(50),
 			Field::make('any')->name('unique_student_id')->lenght(10),
-			Field::make('any')->name('state_id')->lenght(2),
+			Field::make('numeric')->name('state_id')->lenght(2)->pad('0'),
 			Field::make('any')->name('address_building_property_name')->lenght(50),
 			Field::make('any')->name('address_flat_unit_details')->lenght(30),
 			Field::make('any')->name('adress_street_number')->lenght(15),

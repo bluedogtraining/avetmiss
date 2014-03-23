@@ -12,10 +12,10 @@ class RowTest extends TestCase
 	public function testAddAndGetField()
 	{
 		$row = new NatEmpty;
-		$row->addField(Field::make('numeric')->name('foo')->lenght(10));
+		$row->addField(Field::make('numeric')->name('foo')->length(10));
 
 		$this->assertEquals('foo', $row->getField('foo')->getName());
-		$this->assertEquals(10, $row->getField('foo')->getLenght());
+		$this->assertEquals(10, $row->getField('foo')->getlength());
 	}
 
 

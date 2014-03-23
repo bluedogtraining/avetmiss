@@ -82,7 +82,7 @@ abstract class Row
 
 
 	/**
-	 *	Renders the row to a string, including the required lenghts
+	 *	Renders the row to a string, including the required lengths
 	 */
 	public function __toString()
 	{

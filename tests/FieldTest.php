@@ -10,15 +10,15 @@ class FieldTest extends TestCase
 	/**
 	 * @expectedException \InvalidArgumentException
 	 */
-	public function testLenghtShouldBeInt()
+	public function testlengthShouldBeInt()
 	{
-		$field = Field::make('any')->lenght('z');
+		$field = Field::make('any')->length('z');
 	}
 
 
 	public function testExportSpacesPad()
 	{
-		$field = Field::make('any')->name('foo')->lenght(10);
+		$field = Field::make('any')->name('foo')->length(10);
 		$field->setValue('bar');
 
 		// bar with 7 spaces
@@ -26,9 +26,9 @@ class FieldTest extends TestCase
 	}
 
 
-	public function testCutIfLenghtIsToLong()
+	public function testCutIflengthIsToLong()
 	{
-		$field = Field::make('any')->name('foo')->lenght(10);
+		$field = Field::make('any')->name('foo')->length(10);
 
 		// 12 characters
 		$field->setValue('foobarfoobar');
@@ -42,25 +42,25 @@ class FieldTest extends TestCase
 	 */
 	public function testInvalidDateFormat()
 	{
-		$field = Field::make('date')->name('foo')->lenght(8);
+		$field = Field::make('date')->name('foo')->length(8);
 		$field->setValue('bar');
 	}
 
 
 	public function testValidDateFormat()
 	{
-		$field = Field::make('date')->name('foo')->lenght(8);
+		$field = Field::make('date')->name('foo')->length(8);
 		$field->setValue('02032014');
 	}
 	
 
-	// make, lenght, name, in, pad should all return a Field object
+	// make, length, name, in, pad should all return a Field object
 	public function testFluentBuilder()
 	{
 		$field = Field::make('any');
 		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
 
-		$field->lenght(10);
+		$field->length(10);
 		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
 
 		$field->name('foo');
@@ -76,7 +76,7 @@ class FieldTest extends TestCase
 
 	public function testInWithValidValue()
 	{
-		$field = Field::make('any')->name('foo')->lenght(10)->in(['bar']);
+		$field = Field::make('any')->name('foo')->length(10)->in(['bar']);
 		$field->setValue('bar');
 
 		$this->assertEquals('bar       ', $field->render());
@@ -88,14 +88,14 @@ class FieldTest extends TestCase
 	 */
 	public function testInWithInvalidValue()
 	{
-		$field = Field::make('any')->name('foo')->lenght(10)->in(['bar']);
+		$field = Field::make('any')->name('foo')->length(10)->in(['bar']);
 		$field->setValue('fiddy');
 	}
 
 
 	public function testPad()
 	{
-		$field = Field::make('any')->name('foo')->lenght(10)->pad('.');
+		$field = Field::make('any')->name('foo')->length(10)->pad('.');
 		$field->setValue('bar');
 
 		$this->assertEquals('.......bar', $field->render());

@@ -55,8 +55,8 @@ class MyOwnNat extends Row
     public function __construct()
     {
         $this->addFields([
-            Field::make('date')->name('enrolment_date')->lenght(8),
-            Field::make('numeric')->name('state_id')->lenght(2)->pad('0')->in(Config::keys('states')),
+            Field::make('date')->name('enrolment_date')->length(8),
+            Field::make('numeric')->name('state_id')->length(2)->pad('0')->in(Config::keys('states')),
         ]);
     }
 }

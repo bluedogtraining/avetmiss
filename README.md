@@ -16,30 +16,32 @@ The idea behind the library is very simple.
 
 ### Code example
 
-    // array of student courses, pulled from the database
-    protected $studentcourses;
-    
-    // initiate a new nat file
-    $file = new File;
-    
-    // loop through the studentcourses and add them to the file
-    foreach($this->studentcourses as $studentcourse) {
-    
-        try {
-            $row = new nat120;
-            
-            $row->client_id = $studentcourse->Student->id;
-            $row->subject_id = $studentcourse->Course->id;
-            ...
-            
-            $file->addRow($row);
-        }
-        catch(Exception $e) {
-            // display - log the error
-        }
+```php
+// array of student courses, pulled from the database
+protected $studentcourses;
+
+// initiate a new nat file
+$file = new File;
+
+// loop through the studentcourses and add them to the file
+foreach($this->studentcourses as $studentcourse) {
+
+    try {
+        $row = new nat120;
+        
+        $row->client_id = $studentcourse->Student->id;
+        $row->subject_id = $studentcourse->Course->id;
+        ...
+        
+        $file->addRow($row);
     }
-    
-    $file->export('nat120.txt');
+    catch(Exception $e) {
+        // display - log the error
+    }
+}
+
+$file->export('nat120.txt');
+```
 
 ### Behind the scene
 
@@ -47,29 +49,33 @@ The library comes with existing nat files and rules matching avetmiss version 7.
 
 You can very easily add your own nat files if required.
 
-    class MyOwnNat extends Row
+```php
+class MyOwnNat extends Row
+{
+    public function __construct()
     {
-        public function __construct()
-        {
-            $this->addFields([
-                Field::make('date')->name('enrolment_date')->lenght(8),
-                Field::make('numeric')->name('state_id')->lenght(2)->pad('0')->in(Config::keys('states')),
-            ]);
-        }
+        $this->addFields([
+            Field::make('date')->name('enrolment_date')->lenght(8),
+            Field::make('numeric')->name('state_id')->lenght(2)->pad('0')->in(Config::keys('states')),
+        ]);
     }
+}
+```
 
 Or own rules.
 
-    class MyOwnConfig extends Config
-    {
-        protected static $deliveryTypes = [
-            10 => 'Classroom-based',
-            20 => 'Electronic based',
-            30 => 'Employment based',
-            40 => 'Other delivery (eg correspondence)',
-            90 => 'Not applicable - recognition of prior learning/ recognition of current competency/ credit transfer'
-        ];
-    }
+```php
+class MyOwnConfig extends Config
+{
+    protected static $deliveryTypes = [
+        10 => 'Classroom-based',
+        20 => 'Electronic based',
+        30 => 'Employment based',
+        40 => 'Other delivery (eg correspondence)',
+        90 => 'Not applicable - recognition of prior learning/ recognition of current competency/ credit transfer'
+    ];
+}
+```
 
 ### How to install
 

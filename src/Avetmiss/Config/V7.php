@@ -50,7 +50,7 @@ class V7 extends Config
         '8' => 'Unit of competency or module enrolment only'
     ];
     
-    protected static $vetFlagOptions = array (
+    protected static $vetFlagOptions = [
         'Y' => 'Yes - The intention of the program of study is vocational',
         'N' => 'No - The intention of the program of study is not vocational'
     ];

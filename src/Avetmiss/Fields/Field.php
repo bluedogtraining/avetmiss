@@ -5,7 +5,7 @@ abstract class Field
 {
     
     protected $name = null;
-    protected $lenght = null;
+    protected $length = null;
     protected $value = null;
     protected $in = null;
     protected $pad = null;
@@ -14,7 +14,7 @@ abstract class Field
     /**
      * Used to generate fields in a fluent way
      *
-     * ex. Field::make('any')->name('training_organisation_delivery_location_id')->lenght(10)->in(array);
+     * ex. Field::make('any')->name('training_organisation_delivery_location_id')->length(10)->in(array);
      */
     public static function make($type)
     {
@@ -32,14 +32,14 @@ abstract class Field
     }
 
 
-    public function lenght($lenght)
+    public function length($length)
     {
-        if(!is_int($lenght))
+        if(!is_int($length))
         {
-            throw new \InvalidArgumentException('lenght should be an int');
+            throw new \InvalidArgumentException('length should be an int');
         }
 
-        $this->lenght = $lenght;
+        $this->length = $length;
 
         return $this;
     }
@@ -67,9 +67,9 @@ abstract class Field
     }
 
 
-    public function getLenght()
+    public function getlength()
     {
-    	return $this->lenght;
+    	return $this->length;
     }
 
 
@@ -114,15 +114,15 @@ abstract class Field
         $value = $this->value;
 
         // cut off the string if to long
-        $value = substr($value, 0, $this->lenght);
+        $value = substr($value, 0, $this->length);
 
         // add pad if selected
         if(!is_null($this->pad))
         {
-            $value = str_pad($value, $this->lenght, $this->pad, STR_PAD_LEFT);
+            $value = str_pad($value, $this->length, $this->pad, STR_PAD_LEFT);
         }
 
-    	// add spaces at the end of the string if required to match the proper lenght
-    	return str_pad($value, $this->lenght);
+    	// add spaces at the end of the string if required to match the proper length
+    	return str_pad($value, $this->length);
     }
 }

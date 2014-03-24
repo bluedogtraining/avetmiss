@@ -31,4 +31,10 @@ class UtilitiesTest extends TestCase
     {
     	Utilities::toDate('foo');
     }
+
+
+    public function testToNameForEncryption()
+    {
+        $this->assertEquals('bond, james', Utilities::toNameForEncryption('james', 'bond'));
+    }
 }

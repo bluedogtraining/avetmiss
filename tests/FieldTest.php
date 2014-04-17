@@ -66,7 +66,7 @@ class FieldTest extends TestCase
 		$field->name('foo');
 		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
 
-		$field->in(['foo', 'bar']);
+		$field->in(array('foo', 'bar'));
 		$this->assertInstanceOf('Avetmiss\Fields\Field', $field);
 
 		$field->pad('.');
@@ -76,7 +76,7 @@ class FieldTest extends TestCase
 
 	public function testInWithValidValue()
 	{
-		$field = Field::make('any')->name('foo')->length(10)->in(['bar']);
+		$field = Field::make('any')->name('foo')->length(10)->in(array('bar'));
 		$field->setValue('bar');
 
 		$this->assertEquals('bar       ', $field->render());
@@ -88,7 +88,7 @@ class FieldTest extends TestCase
 	 */
 	public function testInWithInvalidValue()
 	{
-		$field = Field::make('any')->name('foo')->length(10)->in(['bar']);
+		$field = Field::make('any')->name('foo')->length(10)->in(array('bar'));
 		$field->setValue('fiddy');
 	}
 

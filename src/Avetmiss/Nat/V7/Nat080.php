@@ -10,7 +10,7 @@ class Nat080 extends Row
 
 	public function __construct()
 	{
-		$this->addFields([
+		$this->addFields(array(
 			Field::make('any')->name('client_id')->length(10),
 			Field::make('any')->name('name_for_encryption')->length(60),
 			Field::make('any')->name('highest_school_level_completed')->length(2),
@@ -35,6 +35,6 @@ class Nat080 extends Row
 			Field::make('any')->name('adress_street_name')->length(70),
 			Field::make('any')->name('statistical_area_level_1_id')->length(11),
 			Field::make('any')->name('statistical_area_level_2_id')->length(9),
-		]);
+		));
 	}
 }

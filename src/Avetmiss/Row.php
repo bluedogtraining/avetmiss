@@ -8,7 +8,7 @@ use Avetmiss\UnexistingFieldException;
 abstract class Row
 {
 
-	protected $fields = [];
+	protected $fields = array();
 
 
 	/**

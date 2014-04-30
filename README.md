@@ -79,7 +79,7 @@ class MyOwnConfig extends Config
 
 ### How to install
 
-Simply add `"bdt/avetmiss" : "dev-master"` to your composer.json and run a `composer update`.
+Simply add `"bluedogtraining/avetmiss" : "dev-master"` to your composer.json and run a `composer update`.
 
 ### Running the tests
 

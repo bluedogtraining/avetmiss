@@ -2,6 +2,7 @@
 
 use Avetmiss\Row;
 use Avetmiss\Fields\Field;
+use Avetmiss\Config\V7 as Config;
 
 
 class Nat120 extends Row
@@ -35,6 +36,7 @@ class Nat120 extends Row
 			Field::make('any')->name('purchasing_contract_schedule_id')->length(3),
 			Field::make('numeric')->name('hours_attended')->length(4),
 			Field::make('any')->name('associated_course_id')->length(10),
+			Field::make('any')->name('full_time_learning_option')->length(1)->in(Config::keys('booleans')),
 		]);
 	}
 }

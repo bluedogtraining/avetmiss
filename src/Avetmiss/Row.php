@@ -51,14 +51,12 @@ abstract class Row
 	 * returns a row populated from $rowData
 	 */
 	public function populateFields($rowData){
-		//clone the row so the clean one remains
-		$workingRow = $rowData;
 		if(!$this->fields){
-			throw new UnexistingFieldsException("Class ".get_called_class()." does not contain fields to populate.");
+			return false;
 		}else{
 			foreach($this->fields as $field){
-				$value = substr($workingRow,0,$field->getLength());
-				$workingRow = substr($workingRow, $field->getLength());
+				$value = substr($rowData,0,$field->getLength());
+				$rowData = substr($rowData, $field->getLength());
 				$field->setValue($value);
 			}
 			return $this;

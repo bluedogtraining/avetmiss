@@ -10,7 +10,7 @@ class Nat020 extends Row
 
 	public function __construct()
 	{
-		$this->addFields([
+		$this->addFields(array(
 			Field::make('any')->name('training_organisation_id')->length(10),
 			Field::make('any')->name('training_organisation_delivery_location_id')->length(10),
 			Field::make('any')->name('training_organisation_delivery_location_name')->length(100),
@@ -18,6 +18,6 @@ class Nat020 extends Row
 			Field::make('numeric')->name('state_id')->length(2)->pad('0'),
 			Field::make('any')->name('address_location_suburb_locality_town')->length(50),
 			Field::make('any')->name('country_id')->length(4),
-		]);
+		));
 	}
 }

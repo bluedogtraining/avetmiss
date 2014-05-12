@@ -10,7 +10,7 @@ class Nat010 extends Row
 
 	public function __construct()
 	{
-		$this->addFields([
+		$this->addFields(array(
 			Field::make('any')->name('training_organisation_id')->length(10),
 			Field::make('any')->name('training_organisation_name')->length(100),
 			Field::make('numeric')->name('training_organisation_type_id')->length(2),
@@ -23,6 +23,6 @@ class Nat010 extends Row
 			Field::make('any')->name('telephone_number')->length(20),
 			Field::make('any')->name('facsimile_number')->length(20),
 			Field::make('any')->name('email_adress')->length(80),
-		]);
+		));
 	}
 }

@@ -8,7 +8,7 @@ use Avetmiss\UnexistingFieldException;
 abstract class Row
 {
 
-	protected $fields = [];
+	protected $fields = array();
 
 
 	/**
@@ -47,6 +47,21 @@ abstract class Row
 		return $this->fields[$name];
 	}
 
+	/*
+	 * returns a row populated from $rowData
+	 */
+	public function populateFields($rowData){
+		if(!$this->fields){
+			return false;
+		}else{
+			foreach($this->fields as $field){
+				$value = substr($rowData,0,$field->getLength());
+				$rowData = substr($rowData, $field->getLength());
+				$field->setValue($value);
+			}
+			return $this;
+		}
+	}
 
 	/**
 	 *	Populate one of the field

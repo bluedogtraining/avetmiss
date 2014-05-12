@@ -6,7 +6,7 @@ use Avetmiss\Row;
 class File
 {
 
-	protected $rows = [];
+	protected $rows = array();
 	protected $time;
 
 

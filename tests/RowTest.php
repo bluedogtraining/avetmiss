@@ -25,10 +25,28 @@ class RowTest extends TestCase
 		$rowData = "8901      ACHI100001CPCCCA3012A CPC30208  101020120103201330200000114201133307           @@N             F3 0000 PS100087    0030000@         Y";
 		$row = new nat120;
 		$row->populateFields($rowData);
-		foreach($row->fields as $field){
-			$value = $field->getValue();
-			$this->assertFalse($value == null);
-		}
+		$this->assertTrue($row->isValid());
+	}
+
+	/**
+     * @expectedException \InvalidArgumentException
+     */
+	public function testPopulateFieldsWithIncorrectData()
+	{
+		$rowData = "8901      ACHI100001CPCCCA3012A CPC30208  10102     03201330  33307                           F3 0000 PS100087    0030000@         Y";
+		$row = new Nat120;
+		$row->populateFields($rowData);
+	}
+
+
+	/**
+     * @expectedException Avetmiss\UnexistingFieldException
+     */
+	public function testPopulateFieldsWithEmptyRow()
+	{
+		$rowData = "8901      ACHI100001CPCCCA3012A CPC30208  101020120103201330200000114201133307           @@N             F3 0000 PS100087    0030000@         Y";
+		$row = new NatEmpty;
+		$row->populateFields($rowData);
 	}
 
 

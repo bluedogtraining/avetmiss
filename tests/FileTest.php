@@ -34,7 +34,7 @@ class FileTest extends TestCase
 
 		$file->export('nat120.txt');
 
-		$this->assertEquals("888  bar foo           30112000\n", file_get_contents('nat120.txt'));
+		$this->assertEquals("888  bar foo           30112000\r\n", file_get_contents('nat120.txt'));
 
 		unlink('nat120.txt');
 	}

@@ -1,4 +1,4 @@
-0<?php
+<?php
 
 use Avetmiss\Fields\Field;
 use Avetmiss\Nat\V7\Nat120;

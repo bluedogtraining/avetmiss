@@ -1,6 +1,7 @@
 <?php
 
 use Avetmiss\Fields\Field;
+use Avetmiss\Nat\V7\Nat120;
 use Fixture\NatEmpty;
 use Fixture\NatPopulated;
 
@@ -16,6 +17,36 @@ class RowTest extends TestCase
 
 		$this->assertEquals('foo', $row->getField('foo')->getName());
 		$this->assertEquals(10, $row->getField('foo')->getlength());
+	}
+
+
+	public function testPopulateFields()
+	{
+		$rowData = "8901      ACHI100001CPCCCA3012A CPC30208  101020120103201330200000114201133307           @@N             F3 0000 PS100087    0030000@         Y";
+		$row = new nat120;
+		$row->populateFields($rowData);
+		$this->assertTrue($row->isValid());
+	}
+
+	/**
+     * @expectedException \InvalidArgumentException
+     */
+	public function testPopulateFieldsWithIncorrectData()
+	{
+		$rowData = "8901      ACHI100001CPCCCA3012A CPC30208  10102     03201330  33307                           F3 0000 PS100087    0030000@         Y";
+		$row = new Nat120;
+		$row->populateFields($rowData);
+	}
+
+
+	/**
+     * @expectedException Avetmiss\UnexistingFieldException
+     */
+	public function testPopulateFieldsWithEmptyRow()
+	{
+		$rowData = "8901      ACHI100001CPCCCA3012A CPC30208  101020120103201330200000114201133307           @@N             F3 0000 PS100087    0030000@         Y";
+		$row = new NatEmpty;
+		$row->populateFields($rowData);
 	}
 
 

@@ -6,19 +6,19 @@ use Avetmiss\Config\Config;
 class V7 extends Config
 {
     
-    protected static $recognitionStatus = [
+    protected static $recognitionStatus = array(
         '11' => 'Nationally accredited qualification designed to lead to a qualification specified in a national Training Package',
         '12' => 'Nationally recognised accredited course, other than a qualification designed to lead to a qualification specified in a national Training Package',
         '14' => 'Other courses'
-    ];
+    );
 
-    protected static $qualificationCategories = [
+    protected static $qualificationCategories = array(
         '211' => 'Graduate Diploma',
         '213' => 'Professional Specialist Qualification at Graduate Diploma Level',
         '221' => 'Graduate Certificate',
         '222' => 'Professional Specialist Qualification at Graduate Certificate Level',
-        '311' => 'Bachelor Degree (Honours]',
-        '312' => 'Bachelor Degree (Pass]',
+        '311' => 'Bachelor Degree (Honours)',
+        '312' => 'Bachelor Degree (Pass)',
         '411' => 'Advanced Diploma',
         '413' => 'Associate Degree',
         '421' => 'Diploma',
@@ -33,46 +33,46 @@ class V7 extends Config
         '991' => 'Statement of Attainment Not Identifiable by Level',
         '992' => 'Bridging and Enabling Courses Not Identifiable by Level',
         '999' => 'Education not elsewhere classified'
-    ];
+    );
     
-    protected static $fundingSourceNational = [
+    protected static $fundingSourceNational = array(
         '11' => 'Commonwealth and state general purpose recurrent',
         '13' => 'Commonwealth specific purpose programs',
         '15' => 'State specific purpose programs',
         '20' => 'Domestic full fee-paying client',
         '30' => 'International full fee-paying client',
         '80' => 'Revenue earned from another registered training organisation'
-    ];
+    );
     
-    protected static $commencingCourseOptions = [
+    protected static $commencingCourseOptions = array(
         '3' => 'Commencing enrolment in the qualification or course',
         '4' => 'Continuing enrolment in the qualification or course from a previous year',
         '8' => 'Unit of competency or module enrolment only'
-    ];
+    );
     
-    protected static $vetFlagOptions = [
+    protected static $vetFlagOptions = array(
         'Y' => 'Yes - The intention of the program of study is vocational',
         'N' => 'No - The intention of the program of study is not vocational'
-    ];
+    );
 
-    protected static $mucFlagOptions = [
+    protected static $mucFlagOptions = array(
         'C' => 'Unit of Competency',
         'M' => 'Module'
-    ];
+    );
 
-    protected static $deliveryTypes = [
+    protected static $deliveryTypes = array(
         '10' => 'Classroom-based',
         '20' => 'Electronic based',
         '30' => 'Employment based',
         '40' => 'Other delivery (eg correspondence)',
         '90' => 'Not applicable - recognition of prior learning/ recognition of current competency/ credit transfer'
-    ];
+    );
 
-    protected static $deliveryTypeNotApplicableOutcomes = [
+    protected static $deliveryTypeNotApplicableOutcomes = array(
         51, 52, 53, 54, 60, 81, 82
-    ];
+    );
     
-    protected static $outcomeStatusOptions = [
+    protected static $outcomeStatusOptions = array(
         20 => 'Competency achieved/pass',
         30 => 'Competency not achieved/fail',
         40 => 'Withdrawn',
@@ -85,17 +85,17 @@ class V7 extends Config
         70 => 'Continuing enrolment',
         81 => 'Non-assessed enrolment - Satisfactorily completed',
         82 => 'Non-assessed enrolment - Withdrawn or not satisfactorily completed',
-    ];
+    );
     
-    protected static $outcomeStatusCodes = [
+    protected static $outcomeStatusCodes = array(
         20, 30, 40, 51, 52, 53, 54, 60, 70, 81, 82, 90
-    ];
+    );
     
-    protected static $noCompletionWithOutcomeStatus = [
+    protected static $noCompletionWithOutcomeStatus = array(
         30, 40, 52, 54
-    ];
+    );
 
-    protected static $studyReasonOptions = [
+    protected static $studyReasonOptions = array(
         '01' => 'To get a job',
         '02' => 'To develop my existing business',
         '03' => 'To start my own business',
@@ -107,9 +107,9 @@ class V7 extends Config
         '11' => 'Other reasons',
         '12' => 'For personal interest or self-development',
         '@@' => 'Not specified'
-    ];
+    );
 
-    protected static $states = [
+    protected static $states = array(
         '01' => 'New South Wales',
         '02' => 'Victoria',
         '03' => 'Queensland',
@@ -120,9 +120,9 @@ class V7 extends Config
         '08' => 'Australian Capital Territory',
         '09' => 'Other Australian Territories or Dependencies',
         '99' => 'Other (Overseas but not an Australian Territory or Dependency)'
-    ];
+    );
     
-    protected static $statesShort = [
+    protected static $statesShort = array(
         '01' => 'NSW',
         '02' => 'VIC',
         '03' => 'QLD',
@@ -133,9 +133,9 @@ class V7 extends Config
         '08' => 'ACT',
         '09' => 'Other Australian Territories or Dependencies',
         '99' => 'Other (Overseas but not an Australian Territory or Dependency)'
-    ];
+    );
 
-    protected static $clientTitles = [
+    protected static $clientTitles = array(
         'Mr' => 'Mr',
         'Mrs' => 'Mrs',
         'Miss' => 'Miss',
@@ -144,30 +144,30 @@ class V7 extends Config
         'Rev' => 'Rev',
         'Hon' => 'Hon',
         'Sir' => 'Sir'
-    ];
+    );
 
-    protected static $clientSex = [
+    protected static $clientSex = array(
         'M' => 'Male',
         'F' => 'Female'
-    ];
+    );
 
-    protected static $booleans = [
+    protected static $booleans = array(
         'Y' => 'Yes',
         'N' => 'No'
-    ];
+    );
     
-    protected static $booleanOptions = [
+    protected static $booleanOptions = array(
         '1' => 'Yes',
         '0' => 'No'
-    ];
+    );
 
-    protected static $atSchool = [
+    protected static $atSchool = array(
         'Y' => 'Yes - the client is still attending secondary school',
         'N' => 'No - the client is not attending secondary school',
         '@' => 'Not stated (Question asked of the client but no answer provided)'
-    ];
+    );
 
-    protected static $highestSchoolLevelCompleted = [
+    protected static $highestSchoolLevelCompleted = array(
         '02' => 'Did not go to school',
         '08' => 'Year 8 or below',
         '09' => 'Year 9 or equivalent',
@@ -175,9 +175,9 @@ class V7 extends Config
         '11' => 'Completed Year 11',
         '12' => 'Completed Year 12',
         '@@' => 'Not stated (Question asked of the client but no answer provided)'
-    ];
+    );
 
-    protected static $priorEducationAchivements = [
+    protected static $priorEducationAchivements = array(
         '008' => 'Bachelor Degree or Higher Degree level (defined for AVETMISS use only)',
         '410' => 'Advanced Diploma or Associate Degree Level',
         '420' => 'Diploma Level',
@@ -186,9 +186,9 @@ class V7 extends Config
         '521' => 'Certificate II',
         '524' => 'Certificate I',
         '990' => 'Miscellaneous Education'
-    ];
+    );
 
-    protected static $labourForceStatus = [
+    protected static $labourForceStatus = array(
         '01' => 'Full-time employee',
         '02' => 'Part-time employee',
         '03' => 'Self-employed - not employing others',
@@ -198,25 +198,25 @@ class V7 extends Config
         '07' => 'Unemployed - seeking part-time work',
         '08' => 'Not employed - not seeking employment',
         '@@' => 'Not stated (Question asked of the client but no answer provided)'
-    ];
+    );
 
-    protected static $clientIndigenousStatus = [
+    protected static $clientIndigenousStatus = array(
         '1' => 'Yes, Aboriginal',
         '2' => 'Yes, Torres Strait Islander',
         '3' => 'Yes, Aboriginal AND Torres Strait Islander',
         '4' => 'No, Neither Aboriginal nor Torres Strait Islander',
         '@' => 'Not stated (Question asked of the client but no answer provided)'
-    ];
+    );
 
-    protected static $proficiencyInSpokenEnglish = [
+    protected static $proficiencyInSpokenEnglish = array(
         '1' => 'Very well',
         '2' => 'Well',
         '3' => 'Not well',
         '4' => 'Not at all',
         '@' => 'Not stated',
-    ];
+    );
 
-    protected static $disabilityTypes = [
+    protected static $disabilityTypes = array(
         '11' => 'Hearing/Deaf',
         '12' => 'Physical',
         '13' => 'Intellectual',
@@ -227,5 +227,5 @@ class V7 extends Config
         '18' => 'Medical Condition',
         '19' => 'Other',
         '99' => 'Unspecified'
-    ];
+    );
 }

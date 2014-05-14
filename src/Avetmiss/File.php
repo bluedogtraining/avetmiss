@@ -39,7 +39,7 @@ class File
 
 		foreach($this->rows as $row)
 		{
-			fwrite($file, $row ."\n");
+			fwrite($file, $row ."\r\n");
 		}
 
 		fclose($file);

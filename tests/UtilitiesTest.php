@@ -21,7 +21,7 @@ class UtilitiesTest extends TestCase
 
     public function testNullReturnsNull()
     {
-    	$this->assertNull(Utilities::toDate(null));
+        $this->assertNull(Utilities::toDate(null));
     }
 
     /**
@@ -29,7 +29,7 @@ class UtilitiesTest extends TestCase
      */
     public function testInvalidDateThrowsException()
     {
-    	Utilities::toDate('foo');
+        Utilities::toDate('foo');
     }
 
 

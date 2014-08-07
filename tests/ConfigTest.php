@@ -9,13 +9,13 @@ class ConfigTest extends TestCase
     
     public function testGetKeys()
     {
-    	$this->assertEquals(array(1, 2, 3, '@'), Config::keys('animals'));
+        $this->assertEquals([1, 2, 3, '@'], Config::keys('animals'));
     }
 
     
     public function testGetValues()
     {
-    	$this->assertEquals(array('squirrel', 'camel', 'trex', 'unknown pokemon'), Config::values('animals'));
+        $this->assertEquals(['squirrel', 'camel', 'trex', 'unknown pokemon'], Config::values('animals'));
     }
 
 
@@ -24,6 +24,6 @@ class ConfigTest extends TestCase
      */
     public function testInvalidConfigDomain()
     {
-    	Config::keys('aliens');
+        Config::keys('aliens');
     }
 }

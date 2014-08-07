@@ -10,6 +10,6 @@ class Any extends Field implements FormatInterface
 
     public function isFormatValid()
     {
-    	return true;
+        return true;
     }
 }

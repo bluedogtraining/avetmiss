@@ -63,13 +63,13 @@ abstract class Field
 
     public function getName()
     {
-    	return $this->name;
+        return $this->name;
     }
 
 
     public function getlength()
     {
-    	return $this->length;
+        return $this->length;
     }
 
 
@@ -101,7 +101,7 @@ abstract class Field
             throw new \UnexpectedValueException($this->value .' could not be found in the requested config array');
         }
 
-    	return $this->isFormatValid();
+        return $this->isFormatValid();
     }
 
 
@@ -122,7 +122,7 @@ abstract class Field
             $value = str_pad($value, $this->length, $this->pad, STR_PAD_LEFT);
         }
 
-    	// add spaces at the end of the string if required to match the proper length
-    	return str_pad($value, $this->length);
+        // add spaces at the end of the string if required to match the proper length
+        return str_pad($value, $this->length);
     }
 }

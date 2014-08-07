@@ -10,6 +10,6 @@ class Numeric extends Field implements FormatInterface
 
     public function isFormatValid()
     {
-    	return is_numeric($this->value);
+        return is_numeric($this->value);
     }
 }

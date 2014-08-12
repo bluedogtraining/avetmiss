@@ -48,27 +48,35 @@ abstract class Row
         return $this->fields[$name];
     }
 
-    /*
-     * returns a row populated from $rowData
+    /**
+     * Returns a populated Row object
+     * 
+     * @param $row String
      */
-    public function populateFields($rowData){
-        
-        ## Verify rowData is of correct length
+    public function populateFields($string)
+    {
+        // Verify that the row is of correct length
         $length = 0;
 
-        foreach($this->fields as $field){
-            $length = $length+$field->getLength();
-        }
-        if($length == 0){
-            throw new UnexistingFieldException("The row ".get_called_class()." to be populated contains no fields");
-        }
-        if(strlen($rowData) != $length){
-            throw new \InvalidArgumentException("Invalid row data for this object.");
+        foreach($this->fields as $field)
+        {
+            $length += $field->getLength();
         }
 
-        foreach($this->fields as $field){
-            $value = substr($rowData,0,$field->getLength());
-            $rowData = substr($rowData, $field->getLength());
+        if($length == 0)
+        {
+            throw new UnexistingFieldException('The row '. get_called_class() .' to be populated contains no fields');
+        }
+
+        if(strlen($string) != $length)
+        {
+            throw new \InvalidArgumentException('Invalid data to create this row');
+        }
+
+        foreach($this->fields as $field)
+        {
+            $value = substr($string, 0, $field->getLength());
+            $string = substr($string, $field->getLength());
             $field->setValue($value);
         }
 

@@ -18,6 +18,6 @@ class Utilities
 
     public static function toNameForEncryption($first_name, $last_name)
     {
-    	return $last_name .', '. $first_name;
+        return $last_name .', '. $first_name;
     }
 }

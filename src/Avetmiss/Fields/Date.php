@@ -6,7 +6,7 @@ use Avetmiss\Fields\FormatInterface;
 
 class Date extends Field implements FormatInterface
 {
-    
+
 
     public function isFormatValid()
     {

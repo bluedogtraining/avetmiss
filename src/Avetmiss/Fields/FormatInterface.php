@@ -3,6 +3,6 @@
 
 interface FormatInterface
 {
-    
+
     public function isFormatValid();
 }

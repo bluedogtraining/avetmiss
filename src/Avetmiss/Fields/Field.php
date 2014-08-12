@@ -3,7 +3,7 @@
 
 abstract class Field
 {
-    
+
     protected $name = null;
     protected $length = null;
     protected $value = null;

@@ -6,7 +6,7 @@ use Avetmiss\Fields\FormatInterface;
 
 class Any extends Field implements FormatInterface
 {
-    
+
 
     public function isFormatValid()
     {

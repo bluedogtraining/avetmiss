@@ -48,6 +48,7 @@ abstract class Row
         return $this->fields[$name];
     }
 
+
     /**
      * Returns a populated Row object
      * 

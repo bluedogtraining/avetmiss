@@ -17,7 +17,7 @@ class Nat080 extends Row
             Field::make('any')->name('year_highest_school_level_completed')->length(4),
             Field::make('any')->name('sex')->length(1),
             Field::make('date')->name('date_of_birth')->length(8),
-            Field::make('any')->name('postcode')->length(4),
+            Field::make('any')->name('postcode')->length(4)->pad('0'),
             Field::make('any')->name('indigenous_status_id')->length(1),
             Field::make('any')->name('language_id')->length(4),
             Field::make('any')->name('labour_force_status_id')->length(2),

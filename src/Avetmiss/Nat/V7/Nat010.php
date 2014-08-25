@@ -17,7 +17,7 @@ class Nat010 extends Row
             Field::make('any')->name('address_first_line')->length(50),
             Field::make('any')->name('address_second_line')->length(50),
             Field::make('any')->name('address_location_suburb_locality_town')->length(50),
-            Field::make('any')->name('postcode')->length(4),
+            Field::make('any')->name('postcode')->length(4)->pad('0'),
             Field::make('numeric')->name('state_id')->length(2)->pad('0'),
             Field::make('any')->name('contact_name')->length(60),
             Field::make('any')->name('telephone_number')->length(20),

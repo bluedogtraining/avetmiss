@@ -21,7 +21,7 @@ class Nat085 extends Row
             Field::make('any')->name('address_street_name')->length(70),
             Field::make('any')->name('address_postal_delivery_box')->length(22),
             Field::make('any')->name('address_postal_suburb_locality_town')->length(50),
-            Field::make('any')->name('postcode')->length(4),
+            Field::make('any')->name('postcode')->length(4)->pad('0'),
             Field::make('numeric')->name('state_id')->length(2)->pad('0'),
             Field::make('any')->name('telephone_number_home')->length(20),
             Field::make('any')->name('telephone_number_work')->length(20),

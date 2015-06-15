@@ -2,8 +2,8 @@
 
 namespace Bdt\Avetmiss\Tests;
 
-use Avetmiss\Fields\Field;
-use Avetmiss\Nat\V7\Nat120;
+use Bdt\Avetmiss\Fields\Field;
+use Bdt\Avetmiss\Nat\V7\Nat120;
 use Bdt\Avetmiss\Tests\Fixture\NatEmpty;
 use Bdt\Avetmiss\Tests\Fixture\NatPopulated;
 
@@ -42,7 +42,7 @@ class RowTest extends TestCase
 
 
     /**
-     * @expectedException Avetmiss\UnexistingFieldException
+     * @expectedException Bdt\Avetmiss\UnexistingFieldException
      */
     public function testPopulateFieldsWithEmptyRow()
     {
@@ -54,7 +54,7 @@ class RowTest extends TestCase
 
     public function testIsValidWithInvalidFields()
     {
-        $field = $this->getMockBuilder('Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
+        $field = $this->getMockBuilder('Bdt\Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
         $field->expects($this->once())->method('isValid')->will($this->returnValue(false));
 
         $row = new NatEmpty();
@@ -66,7 +66,7 @@ class RowTest extends TestCase
 
     public function testIsValidWithValidFields()
     {
-        $field = $this->getMockBuilder('Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
+        $field = $this->getMockBuilder('Bdt\Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
         $field->expects($this->once())->method('isValid')->will($this->returnValue(true));
 
         $row = new NatEmpty();
@@ -77,7 +77,7 @@ class RowTest extends TestCase
 
 
     /**
-     * @expectedException Avetmiss\UnexistingFieldException
+     * @expectedException Bdt\Avetmiss\UnexistingFieldException
      */
     public function testGetInexistantFieldThrowsException()
     {

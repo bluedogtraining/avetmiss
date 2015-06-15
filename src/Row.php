@@ -1,9 +1,9 @@
-<?php namespace Avetmiss;
+<?php namespace Bdt\Avetmiss;
 
-use Avetmiss\File;
-use Avetmiss\Fields\Field;
-use Avetmiss\UnexistingFieldException;
-use Avetmiss\FieldNotSetException;
+use Bdt\Avetmiss\File;
+use Bdt\Avetmiss\Fields\Field;
+use Bdt\Avetmiss\UnexistingFieldException;
+use Bdt\Avetmiss\FieldNotSetException;
 
 
 abstract class Row

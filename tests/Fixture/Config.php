@@ -2,7 +2,7 @@
 
 namespace Bdt\Avetmiss\Tests\Fixture;
 
-use Avetmiss\Config\Config as BaseConfig;
+use Bdt\Avetmiss\Config\Config as BaseConfig;
 
 
 class Config extends BaseConfig

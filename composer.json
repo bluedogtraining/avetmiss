@@ -19,8 +19,8 @@
         "phpunit/phpunit": "4.*"
     },
     "autoload": {
-        "psr-0": { 
-            "Avetmiss": "src/"
+        "psr-4": { 
+            "Bdt\\Avetmiss\\": "src/"
         }
     },
     "autoload-dev": {

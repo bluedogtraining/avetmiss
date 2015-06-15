@@ -1,4 +1,4 @@
-<?php namespace Avetmiss\Config;
+<?php namespace Bdt\Avetmiss\Config;
 
 
 class Config

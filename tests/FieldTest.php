@@ -2,7 +2,7 @@
 
 namespace Bdt\Avetmiss\Tests;
 
-use Avetmiss\Fields\Field;
+use Bdt\Avetmiss\Fields\Field;
 
 
 class FieldTest extends TestCase
@@ -60,19 +60,19 @@ class FieldTest extends TestCase
     public function testFluentBuilder()
     {
         $field = Field::make('any');
-        $this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+        $this->assertInstanceOf('Bdt\Avetmiss\Fields\Field', $field);
 
         $field->length(10);
-        $this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+        $this->assertInstanceOf('Bdt\Avetmiss\Fields\Field', $field);
 
         $field->name('foo');
-        $this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+        $this->assertInstanceOf('Bdt\Avetmiss\Fields\Field', $field);
 
         $field->in(['foo', 'bar']);
-        $this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+        $this->assertInstanceOf('Bdt\Avetmiss\Fields\Field', $field);
 
         $field->pad('.');
-        $this->assertInstanceOf('Avetmiss\Fields\Field', $field);
+        $this->assertInstanceOf('Bdt\Avetmiss\Fields\Field', $field);
     }
 
 

@@ -1,6 +1,6 @@
-<?php namespace Avetmiss;
+<?php namespace Bdt\Avetmiss;
 
-use Avetmiss\Row;
+use Bdt\Avetmiss\Row;
 
 
 class File

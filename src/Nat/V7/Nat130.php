@@ -1,7 +1,7 @@
-<?php namespace Avetmiss\Nat\V7;
+<?php namespace Bdt\Bdt\Avetmiss\Nat\V7;
 
-use Avetmiss\Row;
-use Avetmiss\Fields\Field;
+use Bdt\Bdt\Avetmiss\Row;
+use Bdt\Bdt\Avetmiss\Fields\Field;
 
 
 class Nat130 extends Row

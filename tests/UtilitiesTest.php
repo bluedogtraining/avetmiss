@@ -2,7 +2,7 @@
 
 namespace Bdt\Avetmiss\Tests;
 
-use Avetmiss\Utilities;
+use Bdt\Avetmiss\Utilities;
 
 
 class UtilitiesTest extends TestCase

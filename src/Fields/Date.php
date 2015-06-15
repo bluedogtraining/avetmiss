@@ -1,7 +1,7 @@
-<?php namespace Avetmiss\Fields;
+<?php namespace Bdt\Avetmiss\Fields;
 
-use Avetmiss\Fields\Field;
-use Avetmiss\Fields\FormatInterface;
+use Bdt\Avetmiss\Fields\Field;
+use Bdt\Avetmiss\Fields\FormatInterface;
 
 
 class Date extends Field implements FormatInterface

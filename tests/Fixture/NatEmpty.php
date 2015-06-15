@@ -2,7 +2,7 @@
 
 namespace Bdt\Avetmiss\Tests\Fixture;
 
-use Avetmiss\Row;
+use Bdt\Avetmiss\Row;
 
 
 class NatEmpty extends Row

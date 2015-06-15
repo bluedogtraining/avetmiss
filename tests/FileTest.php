@@ -2,8 +2,8 @@
 
 namespace Bdt\Avetmiss\Tests;
 
-use Avetmiss\File;
-use Avetmiss\Row;
+use Bdt\Avetmiss\File;
+use Bdt\Avetmiss\Row;
 use Bdt\Avetmiss\Tests\Fixture\NatPopulated;
 
 
@@ -16,7 +16,7 @@ class FileTest extends TestCase
      */
     public function testAddInvalidRow()
     {
-        $row = $this->getMock('Avetmiss\Row');
+        $row = $this->getMock('Bdt\Avetmiss\Row');
 
         $file = new File;
         $file->addRow($row);

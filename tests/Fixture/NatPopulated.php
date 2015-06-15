@@ -2,8 +2,8 @@
 
 namespace Bdt\Avetmiss\Tests\Fixture;
 
-use Avetmiss\Row;
-use Avetmiss\Fields\Field;
+use Bdt\Avetmiss\Row;
+use Bdt\Avetmiss\Fields\Field;
 
 
 class NatPopulated extends Row

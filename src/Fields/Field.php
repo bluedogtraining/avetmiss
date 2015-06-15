@@ -1,4 +1,4 @@
-<?php namespace Avetmiss\Fields;
+<?php namespace Bdt\Avetmiss\Fields;
 
 
 abstract class Field
@@ -18,7 +18,7 @@ abstract class Field
      */
     public static function make($type)
     {
-        $field = 'Avetmiss\Fields\\'. ucfirst($type);
+        $field = 'Bdt\Avetmiss\Fields\\'. ucfirst($type);
 
         return new $field;
     }

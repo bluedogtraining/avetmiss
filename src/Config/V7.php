@@ -1,6 +1,6 @@
-<?php namespace Avetmiss\Config;
+<?php namespace Bdt\Avetmiss\Config;
 
-use Avetmiss\Config\Config;
+use Bdt\Avetmiss\Config\Config;
 
 
 class V7 extends Config

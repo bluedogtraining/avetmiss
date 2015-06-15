@@ -1,8 +1,10 @@
 <?php
 
+namespace Bdt\Avetmiss\Tests;
+
 use Avetmiss\File;
 use Avetmiss\Row;
-use Fixture\NatPopulated;
+use Bdt\Avetmiss\Tests\Fixture\NatPopulated;
 
 
 class FileTest extends TestCase

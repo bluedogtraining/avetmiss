@@ -1,6 +1,9 @@
 {
     "name": "bluedogtraining/avetmiss",
-    "description": "Avetmiss report generation",
+    "description": "AVETMISS Validation and Report Generation",
+    "keywords": [
+        "avetmiss"
+    ],
     "homepage": "https://github.com/bluedogtraining/avetmiss",
     "authors": [
         {
@@ -13,12 +16,19 @@
         "php": ">=5.3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "4.*"
     },
     "autoload": {
         "psr-0": { 
-            "Avetmiss": "src/",
-            "Fixture": "tests/"
+            "Avetmiss": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bdt\\Avetmiss\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }

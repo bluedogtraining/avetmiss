@@ -1,4 +1,6 @@
-<?php namespace Fixture;
+<?php 
+
+namespace Bdt\Avetmiss\Tests\Fixture;
 
 use Avetmiss\Config\Config as BaseConfig;
 

@@ -1,6 +1,8 @@
 <?php
 
-use Fixture\Config;
+namespace Bdt\Avetmiss\Tests;
+
+use Bdt\Avetmiss\Tests\Fixture\Config;
 
 
 class ConfigTest extends TestCase

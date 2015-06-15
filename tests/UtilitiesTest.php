@@ -1,5 +1,7 @@
 <?php
 
+namespace Bdt\Avetmiss\Tests;
+
 use Avetmiss\Utilities;
 
 

@@ -1,9 +1,11 @@
 <?php
 
+namespace Bdt\Avetmiss\Tests;
+
 use Avetmiss\Fields\Field;
 use Avetmiss\Nat\V7\Nat120;
-use Fixture\NatEmpty;
-use Fixture\NatPopulated;
+use Bdt\Avetmiss\Tests\Fixture\NatEmpty;
+use Bdt\Avetmiss\Tests\Fixture\NatPopulated;
 
 
 class RowTest extends TestCase

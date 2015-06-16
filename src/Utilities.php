@@ -1,5 +1,6 @@
-<?php namespace Bdt\Avetmiss;
+<?php
 
+namespace Bdt\Avetmiss;
 
 class Utilities
 {
@@ -7,8 +8,7 @@ class Utilities
 
     public static function toDate($mysql = null)
     {
-        if(is_null($mysql))
-        {
+        if (is_null($mysql)) {
             return null;
         }
 

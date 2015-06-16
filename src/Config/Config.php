@@ -1,5 +1,6 @@
-<?php namespace Bdt\Avetmiss\Config;
+<?php
 
+namespace Bdt\Avetmiss\Config;
 
 class Config
 {
@@ -23,8 +24,7 @@ class Config
 
     private static function check($name)
     {
-        if(!isset(static::$$name))
-        {
+        if (!isset(static::$$name)) {
             throw new \DomainException('could not find '. $name .' in the config');
         }
     }

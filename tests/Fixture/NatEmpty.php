@@ -7,5 +7,4 @@ use Bdt\Avetmiss\Row;
 
 class NatEmpty extends Row
 {
-
 }

@@ -35,7 +35,7 @@ class FieldTest extends TestCase
         // 12 characters
         $field->setValue('foobarfoobar');
 
-        $this->assertEquals(10, strlen($field->render())); 
+        $this->assertEquals(10, strlen($field->render()));
     }
 
 

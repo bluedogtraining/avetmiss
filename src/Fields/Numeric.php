@@ -1,4 +1,6 @@
-<?php namespace Bdt\Avetmiss\Fields;
+<?php
+
+namespace Bdt\Avetmiss\Fields;
 
 use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Fields\FormatInterface;

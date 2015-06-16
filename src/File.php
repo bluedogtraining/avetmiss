@@ -1,7 +1,8 @@
-<?php namespace Bdt\Avetmiss;
+<?php
+
+namespace Bdt\Avetmiss;
 
 use Bdt\Avetmiss\Row;
-
 
 class File
 {
@@ -21,8 +22,7 @@ class File
      */
     public function addRow(Row $row)
     {
-        if(!$row->isValid())
-        {
+        if (!$row->isValid()) {
             throw new \Exception('Cant add invalid row');
         }
 
@@ -37,8 +37,7 @@ class File
     {
         $file = fopen($name, 'w');
 
-        foreach($this->rows as $row)
-        {
+        foreach ($this->rows as $row) {
             fwrite($file, $row ."\r\n");
         }
 

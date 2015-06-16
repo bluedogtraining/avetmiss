@@ -1,4 +1,6 @@
-<?php namespace Bdt\Avetmiss\Config;
+<?php
+
+namespace Bdt\Avetmiss\Config;
 
 use Bdt\Avetmiss\Config\Config;
 

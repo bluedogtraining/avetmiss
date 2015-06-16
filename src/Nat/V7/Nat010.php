@@ -1,4 +1,6 @@
-<?php namespace Bdt\Avetmiss\Nat\V7;
+<?php
+
+namespace Bdt\Avetmiss\Nat\V7;
 
 use Bdt\Avetmiss\Row;
 use Bdt\Avetmiss\Fields\Field;

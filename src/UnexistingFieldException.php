@@ -1,5 +1,7 @@
-<?php namespace Bdt\Avetmiss;
+<?php
 
+namespace Bdt\Avetmiss;
 
 class UnexistingFieldException extends \Exception
-{}
+{
+}

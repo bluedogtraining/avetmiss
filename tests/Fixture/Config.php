@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Bdt\Avetmiss\Tests\Fixture;
 

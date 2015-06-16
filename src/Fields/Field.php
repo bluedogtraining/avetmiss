@@ -1,5 +1,6 @@
-<?php namespace Bdt\Avetmiss\Fields;
+<?php
 
+namespace Bdt\Avetmiss\Fields;
 
 abstract class Field
 {
@@ -34,8 +35,7 @@ abstract class Field
 
     public function length($length)
     {
-        if(!is_int($length))
-        {
+        if (!is_int($length)) {
             throw new \InvalidArgumentException('length should be an int');
         }
 
@@ -77,8 +77,7 @@ abstract class Field
     {
         $this->value = $value;
 
-        if(!$this->isValid())
-        {
+        if (!$this->isValid()) {
             $this->value = null;
             throw new \InvalidArgumentException($value .' is not a valid value for '. $this->name);
         }
@@ -96,8 +95,7 @@ abstract class Field
      */
     public function isValid()
     {
-        if(!is_null($this->in) && !in_array($this->value, $this->in))
-        {
+        if (!is_null($this->in) && !in_array($this->value, $this->in)) {
             throw new \UnexpectedValueException($this->value .' could not be found in the requested config array');
         }
 
@@ -117,8 +115,7 @@ abstract class Field
         $value = substr($value, 0, $this->length);
 
         // add pad if selected
-        if(!is_null($this->pad))
-        {
+        if (!is_null($this->pad)) {
             $value = str_pad($value, $this->length, $this->pad, STR_PAD_LEFT);
         }
 

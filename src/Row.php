@@ -1,4 +1,6 @@
-<?php namespace Bdt\Avetmiss;
+<?php
+
+namespace Bdt\Avetmiss;
 
 use Bdt\Avetmiss\File;
 use Bdt\Avetmiss\Fields\Field;
@@ -28,8 +30,7 @@ abstract class Row
      */
     public function addFields(array $fields)
     {
-        foreach($fields as $field)
-        {
+        foreach ($fields as $field) {
             $this->addField($field);
         }
     }
@@ -40,8 +41,7 @@ abstract class Row
      */
     public function getField($name)
     {
-        if(!array_key_exists($name, $this->fields))
-        {
+        if (!array_key_exists($name, $this->fields)) {
             throw new UnexistingFieldException($name .' doesn\'t exist in '. get_called_class());
         }
 
@@ -51,7 +51,7 @@ abstract class Row
 
     /**
      * Returns a populated Row object
-     * 
+     *
      * @param $row String
      */
     public function populateFields($string)
@@ -59,29 +59,25 @@ abstract class Row
         // Verify that the row is of correct length
         $length = 0;
 
-        foreach($this->fields as $field)
-        {
+        foreach ($this->fields as $field) {
             $length += $field->getLength();
         }
 
-        if($length == 0)
-        {
+        if ($length == 0) {
             throw new UnexistingFieldException('The row '. get_called_class() .' to be populated contains no fields');
         }
 
-        if(strlen($string) != $length)
-        {
+        if (strlen($string) != $length) {
             throw new \InvalidArgumentException('Invalid data to create this row');
         }
 
-        foreach($this->fields as $field)
-        {
+        foreach ($this->fields as $field) {
             $value = substr($string, 0, $field->getLength());
             $string = substr($string, $field->getLength());
             $field->setValue($value);
         }
 
-        return $this;   
+        return $this;
     }
 
 
@@ -106,10 +102,8 @@ abstract class Row
      */
     public function isValid()
     {
-        foreach($this->fields as $field)
-        {
-            if(!$field->isValid())
-            {
+        foreach ($this->fields as $field) {
+            if (!$field->isValid()) {
                 return false;
             }
         }
@@ -125,8 +119,7 @@ abstract class Row
     {
         $string = '';
 
-        foreach($this->fields as $name => $field)
-        {
+        foreach ($this->fields as $name => $field) {
             $string .= $field->render();
         }
 

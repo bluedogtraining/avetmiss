@@ -150,7 +150,8 @@ class V7 extends Config
 
     protected static $clientSex = [
         'M' => 'Male',
-        'F' => 'Female'
+        'F' => 'Female',
+        '@' => 'Not Stated'
     ];
 
     protected static $booleans = [

@@ -2,20 +2,18 @@
 
 namespace Bdt\Avetmiss;
 
-use Bdt\Avetmiss\Row;
-
 class File
 {
 
+    protected $fieldset;
     protected $rows = [];
     protected $time;
 
-
-    public function __construct()
+    public function __construct(Fieldset $fieldset)
     {
+        $this->fieldset = $fieldset;
         $this->time = time();
     }
-
 
     /**
      *  Add a row to the file
@@ -24,6 +22,10 @@ class File
     {
         if (!$row->isValid()) {
             throw new \Exception('Cant add invalid row');
+        }
+
+        if ($row->getFieldset() != $this->fieldset) {
+            throw new \Exception('Cant add row with different fieldset');
         }
 
         $this->rows[] = $row;

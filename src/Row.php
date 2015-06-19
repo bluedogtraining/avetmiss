@@ -7,12 +7,21 @@ use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\UnexistingFieldException;
 use Bdt\Avetmiss\FieldNotSetException;
 
-
-abstract class Row
+class Row
 {
 
     protected $fields = [];
+    protected $fieldset;
 
+    public function __construct(Fieldset $fieldset)
+    {
+        $this->fieldset = $fieldset;
+    }
+
+    public function getFieldset()
+    {
+        return $this->fieldset;
+    }
 
     /**
      *  Adds a field to this row' structure

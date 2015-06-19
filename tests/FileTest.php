@@ -2,7 +2,9 @@
 
 namespace Bdt\Avetmiss\Tests;
 
+use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\File;
+use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Row;
 use Bdt\Avetmiss\Tests\Fixture\NatPopulated;
 
@@ -13,21 +15,37 @@ class FileTest extends TestCase
 
     /**
      * @expectedException Exception
+     * @expectedExceptionMessage Cant add invalid row
      */
     public function testAddInvalidRow()
     {
-        $row = $this->getMock('Bdt\Avetmiss\Row');
+        $fieldset = new Fieldset([Field::make('any')]);
+        $file = new File($fieldset);
 
-        $file = new File;
+        $row = $this->getMockBuilder(Row::class)->disableOriginalConstructor()->getMock();
+        $row->method('isValid')->willReturn(false);
+
+        $file->addRow($row);
+    }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage Cant add row with different fieldset
+     */
+    public function testAddMismatchRow()
+    {
+        $file = new File(new Fieldset([Field::make('any')->name('foo')]));
+        $row = new Row(new Fieldset([Field::make('any')->name('bar')]));
         $file->addRow($row);
     }
 
 
     public function testExport()
     {
-        $file = new File;
+        $fieldset = new Fieldset();
+        $file = new File($fieldset);
 
-        $row = new NatPopulated;
+        $row = new NatPopulated($fieldset);
         $row->foo = '888';
         $row->bar = 'bar foo';
         $row->wee = '30112000';

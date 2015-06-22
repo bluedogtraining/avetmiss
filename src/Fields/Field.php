@@ -7,7 +7,6 @@ abstract class Field
 
     protected $name = null;
     protected $length = null;
-    protected $value = null;
     protected $in = null;
     protected $pad = null;
 
@@ -67,49 +66,37 @@ abstract class Field
     }
 
 
-    public function getlength()
+    public function getLength()
     {
         return $this->length;
     }
 
-
-    public function setValue($value)
-    {
-        $this->value = $value;
-
-        if (!$this->isValid()) {
-            $this->value = null;
-            throw new \InvalidArgumentException($value .' is not a valid value for '. $this->name);
-        }
-    }
-
-
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-
     /**
      * Checks if a value is valid
+     * @throws \UnexpectedValueException
+     * @throws \InvalidArgumentException
      */
-    public function isValid()
+    public function validate($value)
     {
-        if (!is_null($this->in) && !in_array($this->value, $this->in)) {
-            throw new \UnexpectedValueException($this->value .' could not be found in the requested config array');
+        if (!is_null($this->in) && !in_array($value, $this->in)) {
+            throw new \UnexpectedValueException($value .' could not be found in the requested config array');
         }
 
-        return $this->isFormatValid();
+        if (!$this->isFormatValid($value)) {
+            throw new \InvalidArgumentException($value .' is not a valid value for '. $this->name);
+        }
+
+        return true;
     }
 
 
     /**
      * Renders $value according to the field structure
      */
-    public function render()
+    public function render($input)
     {
         // get a copy of the value, we don't actually want to alter it
-        $value = $this->value;
+        $value = $input;
 
         // cut off the string if to long
         $value = substr($value, 0, $this->length);

@@ -10,8 +10,8 @@ class Numeric extends Field implements FormatInterface
 {
 
 
-    public function isFormatValid()
+    public function isFormatValid($value)
     {
-        return is_numeric($this->value);
+        return is_numeric($value);
     }
 }

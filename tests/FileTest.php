@@ -6,8 +6,6 @@ use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\File;
 use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Row;
-use Bdt\Avetmiss\Tests\Fixture\NatPopulated;
-
 
 class FileTest extends TestCase
 {
@@ -23,7 +21,7 @@ class FileTest extends TestCase
         $file = new File($fieldset);
 
         $row = $this->getMockBuilder(Row::class)->disableOriginalConstructor()->getMock();
-        $row->method('isValid')->willReturn(false);
+        $row->method('isValid')->withAnyParameters()->willReturn(false);
 
         $file->addRow($row);
     }
@@ -42,10 +40,14 @@ class FileTest extends TestCase
 
     public function testExport()
     {
-        $fieldset = new Fieldset();
+        $fieldset = new Fieldset([
+            Field::make('numeric')->name('foo')->length(5),
+            Field::make('any')->name('bar')->length(18),
+            Field::make('date')->name('wee')->length(8),
+        ]);
         $file = new File($fieldset);
 
-        $row = new NatPopulated($fieldset);
+        $row = new Row($fieldset);
         $row->foo = '888';
         $row->bar = 'bar foo';
         $row->wee = '30112000';

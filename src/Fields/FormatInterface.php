@@ -5,5 +5,5 @@ namespace Bdt\Avetmiss\Fields;
 interface FormatInterface
 {
 
-    public function isFormatValid();
+    public function isFormatValid($value);
 }

@@ -2,17 +2,17 @@
 
 namespace Bdt\Avetmiss\Nat\V7;
 
-use Bdt\Avetmiss\Row;
+use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\Fields\Field;
 
 
-class Nat060 extends Row
+class Nat060 extends Fieldset
 {
 
 
     public function __construct()
     {
-        $this->addFields([
+        parent::__construct([
             Field::make('any')->name('muc_flag')->length(1),
             Field::make('any')->name('unit_display_id')->length(12),
             Field::make('any')->name('unit_name')->length(100),

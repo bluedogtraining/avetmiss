@@ -2,17 +2,17 @@
 
 namespace Bdt\Avetmiss\Nat\V7;
 
-use Bdt\Avetmiss\Row;
+use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\Fields\Field;
 
 
-class Nat010 extends Row
+class Nat010 extends Fieldset
 {
 
 
     public function __construct()
     {
-        $this->addFields([
+        parent::__construct([
             Field::make('any')->name('training_organisation_id')->length(10),
             Field::make('any')->name('training_organisation_name')->length(100),
             Field::make('numeric')->name('training_organisation_type_id')->length(2),

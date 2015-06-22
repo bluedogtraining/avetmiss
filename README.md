@@ -21,13 +21,13 @@ The idea behind the library is very simple.
 protected $studentcourses;
 
 // initiate a new nat file
-$file = new File;
+$file = new File(new Nat120);
 
 // loop through the studentcourses and add them to the file
 foreach($this->studentcourses as $studentcourse) {
 
     try {
-        $row = new nat120;
+        $row = $file->createRow();
         
         $row->client_id = $studentcourse->Student->id;
         $row->subject_id = $studentcourse->Course->id;

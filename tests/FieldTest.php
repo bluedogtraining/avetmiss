@@ -21,10 +21,9 @@ class FieldTest extends TestCase
     public function testExportSpacesPad()
     {
         $field = Field::make('any')->name('foo')->length(10);
-        $field->setValue('bar');
 
         // bar with 7 spaces
-        $this->assertEquals('bar       ', $field->render());
+        $this->assertEquals('bar       ', $field->render('bar'));
     }
 
 
@@ -33,9 +32,7 @@ class FieldTest extends TestCase
         $field = Field::make('any')->name('foo')->length(10);
 
         // 12 characters
-        $field->setValue('foobarfoobar');
-
-        $this->assertEquals(10, strlen($field->render()));
+        $this->assertEquals(10, strlen($field->render('foobarfoobar')));
     }
 
 
@@ -45,14 +42,14 @@ class FieldTest extends TestCase
     public function testInvalidDateFormat()
     {
         $field = Field::make('date')->name('foo')->length(8);
-        $field->setValue('bar');
+        $field->validate('bar');
     }
 
 
     public function testValidDateFormat()
     {
         $field = Field::make('date')->name('foo')->length(8);
-        $field->setValue('02032014');
+        $field->validate('02032014');
     }
     
 
@@ -79,9 +76,8 @@ class FieldTest extends TestCase
     public function testInWithValidValue()
     {
         $field = Field::make('any')->name('foo')->length(10)->in(['bar']);
-        $field->setValue('bar');
 
-        $this->assertEquals('bar       ', $field->render());
+        $this->assertEquals('bar       ', $field->render('bar'));
     }
 
 
@@ -91,15 +87,14 @@ class FieldTest extends TestCase
     public function testInWithInvalidValue()
     {
         $field = Field::make('any')->name('foo')->length(10)->in(['bar']);
-        $field->setValue('fiddy');
+        $field->validate('fiddy');
     }
 
 
     public function testPad()
     {
         $field = Field::make('any')->name('foo')->length(10)->pad('.');
-        $field->setValue('bar');
 
-        $this->assertEquals('.......bar', $field->render());
+        $this->assertEquals('.......bar', $field->render('bar'));
     }
 }

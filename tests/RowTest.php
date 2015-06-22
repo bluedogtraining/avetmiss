@@ -6,17 +6,13 @@ use Bdt\Avetmiss\Row;
 use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Nat\V7\Nat120;
-use Bdt\Avetmiss\Tests\Fixture\NatEmpty;
-use Bdt\Avetmiss\Tests\Fixture\NatPopulated;
-
 
 class RowTest extends TestCase
 {
 
-
     public function testAddAndGetField()
     {
-        $row = new NatEmpty(new Fieldset);
+        $row = new Row(new Fieldset);
         $row->addField(Field::make('numeric')->name('foo')->length(10));
 
         $this->assertEquals('foo', $row->getField('foo')->getName());
@@ -27,7 +23,7 @@ class RowTest extends TestCase
     public function testPopulateFields()
     {
         $rowData = "8901      ACHI100001CPCCCA3012A CPC30208  101020120103201330200000114201133307           @@N             F3 0000 PS100087    0030000@         Y";
-        $row = new nat120;
+        $row = new Row(new Nat120);
         $row->populateFields($rowData);
         $this->assertTrue($row->isValid());
     }
@@ -38,7 +34,7 @@ class RowTest extends TestCase
     public function testPopulateFieldsWithIncorrectData()
     {
         $rowData = "8901      ACHI100001CPCCCA3012A CPC30208  10102     03201330  33307                           F3 0000 PS100087    0030000@         Y";
-        $row = new Nat120(new Fieldset);
+        $row = new Row(new Nat120);
         $row->populateFields($rowData);
     }
 
@@ -49,7 +45,7 @@ class RowTest extends TestCase
     public function testPopulateFieldsWithEmptyRow()
     {
         $rowData = "8901      ACHI100001CPCCCA3012A CPC30208  101020120103201330200000114201133307           @@N             F3 0000 PS100087    0030000@         Y";
-        $row = new NatEmpty(new Fieldset);
+        $row = new Row(new Fieldset);
         $row->populateFields($rowData);
     }
 
@@ -57,10 +53,9 @@ class RowTest extends TestCase
     public function testIsValidWithInvalidFields()
     {
         $field = $this->getMockBuilder('Bdt\Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
-        $field->expects($this->once())->method('isValid')->will($this->returnValue(false));
+        $field->expects($this->once())->method('validate')->will($this->returnValue(false));
 
-        $row = new NatEmpty(new Fieldset);
-        $row->addField($field);
+        $row = new Row(new Fieldset([$field]));
 
         $this->assertFalse($row->isValid());
     }
@@ -69,10 +64,9 @@ class RowTest extends TestCase
     public function testIsValidWithValidFields()
     {
         $field = $this->getMockBuilder('Bdt\Avetmiss\Fields\Any')->disableOriginalConstructor()->getMock();
-        $field->expects($this->once())->method('isValid')->will($this->returnValue(true));
+        $field->expects($this->once())->method('validate')->will($this->returnValue(true));
 
-        $row = new NatEmpty(new Fieldset);
-        $row->addField($field);
+        $row = new Row(new Fieldset([$field]));
 
         $this->assertTrue($row->isValid());
     }
@@ -83,14 +77,18 @@ class RowTest extends TestCase
      */
     public function testGetInexistantFieldThrowsException()
     {
-        $row = new NatEmpty(new Fieldset);
+        $row = new Row(new Fieldset);
         $row->getField('foo');
     }
 
 
     public function testToString()
     {
-        $row = new NatPopulated(new Fieldset);
+        $row = new Row(new Fieldset([
+            Field::make('numeric')->name('foo')->length(5),
+            Field::make('any')->name('bar')->length(18),
+            Field::make('date')->name('wee')->length(8),
+        ]));
         $row->foo = '23324';
         $row->bar = 'foo';
         $row->wee = '01122014';

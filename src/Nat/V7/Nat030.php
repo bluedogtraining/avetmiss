@@ -2,17 +2,17 @@
 
 namespace Bdt\Avetmiss\Nat\V7;
 
-use Bdt\Avetmiss\Row;
+use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\Fields\Field;
 
 
-class Nat030 extends Row
+class Nat030 extends Fieldset 
 {
 
 
     public function __construct()
     {
-        $this->addFields([
+        parent::__construct([
             Field::make('any')->name('program_id')->length(10),
             Field::make('any')->name('program_name')->length(100),
             Field::make('numeric')->name('nominal_hours')->length(4),

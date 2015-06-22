@@ -10,7 +10,7 @@ class Any extends Field implements FormatInterface
 {
 
 
-    public function isFormatValid()
+    public function isFormatValid($value)
     {
         return true;
     }

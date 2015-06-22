@@ -12,7 +12,7 @@ class Fieldset implements \IteratorAggregate
     /**
      * @var array
      */
-    protected $fields; 
+    protected $fields = [];
 
     /**
      * Create a new Fieldset
@@ -26,9 +26,18 @@ class Fieldset implements \IteratorAggregate
         }
     }
 
-    protected function addField(Field $field)
+    public function addField(Field $field)
     {
         $this->fields[$field->getName()] = $field;
+    }
+
+    public function getFieldByName($name)
+    {
+        if (!isset($this->fields[$name])) {
+            throw new UnexistingFieldException($name .' doesn\'t exist in this '.get_called_class()); 
+        }
+
+        return $this->fields[$name];
     }
 
     public function getIterator()

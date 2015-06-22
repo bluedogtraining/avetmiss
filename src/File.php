@@ -4,7 +4,6 @@ namespace Bdt\Avetmiss;
 
 class File
 {
-
     protected $fieldset;
     protected $rows = [];
     protected $time;
@@ -13,6 +12,11 @@ class File
     {
         $this->fieldset = $fieldset;
         $this->time = time();
+    }
+
+    public function createRow()
+    {
+        return new Row($this->fieldset);
     }
 
     /**

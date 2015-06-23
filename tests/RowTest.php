@@ -40,7 +40,7 @@ class RowTest extends TestCase
 
 
     /**
-     * @expectedException Bdt\Avetmiss\UnexistingFieldException
+     * @expectedException Bdt\Avetmiss\Exceptions\EmptyRowException
      */
     public function testPopulateFieldsWithEmptyRow()
     {
@@ -73,7 +73,7 @@ class RowTest extends TestCase
 
 
     /**
-     * @expectedException Bdt\Avetmiss\UnexistingFieldException
+     * @expectedException Bdt\Avetmiss\Exceptions\FieldNotFoundException
      */
     public function testGetInexistantFieldThrowsException()
     {

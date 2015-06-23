@@ -3,6 +3,7 @@
 namespace Bdt\Avetmiss;
 
 use Bdt\Avetmiss\Fields\Field;
+use Bdt\Avetmiss\Exceptions\FieldNotFoundException;
 
 /**
  * Container for storing multiple Field objects
@@ -34,7 +35,7 @@ class Fieldset implements \IteratorAggregate
     public function getFieldByName($name)
     {
         if (!isset($this->fields[$name])) {
-            throw new UnexistingFieldException($name .' doesn\'t exist in this '.get_called_class()); 
+            throw new FieldNotFoundException($name .' doesn\'t exist in this '.get_called_class()); 
         }
 
         return $this->fields[$name];

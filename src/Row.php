@@ -4,8 +4,7 @@ namespace Bdt\Avetmiss;
 
 use Bdt\Avetmiss\File;
 use Bdt\Avetmiss\Fields\Field;
-use Bdt\Avetmiss\UnexistingFieldException;
-use Bdt\Avetmiss\FieldNotSetException;
+use Bdt\Avetmiss\Exceptions\EmptyRowException;
 
 class Row
 {
@@ -71,7 +70,7 @@ class Row
         }
 
         if ($length == 0) {
-            throw new UnexistingFieldException('The row '. get_called_class() .' to be populated contains no fields');
+            throw new EmptyRowException('The row '. get_called_class() .' to be populated contains no fields');
         }
 
         if (strlen($string) != $length) {

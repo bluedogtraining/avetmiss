@@ -10,6 +10,8 @@
 * `Nat\V7\*` classes are now instances of `Fieldset`, to create a new Row, call
   `new Row(new Nat\V7\Nat120)` for example.
 * `FormatInterface::isFormatValid()` (and implementing classes) now expect a `$value` argument.
+* `Row::getField` now throws `Bdt\Avetmiss\Exceptions\FieldNotFoundException` instead of `UnexistingFieldException`
+* `Row::populateFields` now throws `Bdt\Avetmiss\Exceptions\EmptyRowException` instead of `UnexistingFieldException`
 
 ## Added
 

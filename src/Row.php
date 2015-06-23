@@ -31,6 +31,16 @@ class Row
     }
 
     /**
+     * Get the Fieldset for the Row.
+     *
+     * @return Fieldset
+     */
+    public function getFieldset()
+    {
+        return $this->fieldset;
+    }
+
+    /**
      * Adds a field to this row's structure.
      *
      * This will replace the existing Fieldset with a new instance of Fieldset

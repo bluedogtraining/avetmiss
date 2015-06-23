@@ -27,7 +27,13 @@ class Fieldset implements \IteratorAggregate, \Countable
         }
     }
 
-    public function addField(Field $field)
+    /**
+     * Create a new Fieldset with an additional field.
+     *
+     * @param Field $field
+     * @return Fieldset
+     */
+    public function withField(Field $field)
     {
         $this->fields[$field->getName()] = $field;
     }
@@ -41,11 +47,21 @@ class Fieldset implements \IteratorAggregate, \Countable
         return $this->fields[$name];
     }
 
+    /**
+     * Get the array iterator.
+     *
+     * @see \IteratorAggregate
+     */
     public function getIterator()
     {
         return new \ArrayIterator($this->fields);
     }
 
+    /**
+     * Count the fields.
+     * 
+     * @see \Countable
+     */
     public function count()
     {
         return count($this->fields);

@@ -60,4 +60,20 @@ class FileTest extends TestCase
 
         unlink('nat120.txt');
     }
+
+    public function testCreateRow()
+    {
+        $fieldset = new Fieldset([Field::make('numeric')->name('foo')]);
+        $file = new File($fieldset);
+
+        $row = $file->createRow();
+
+        $this->assertEquals($fieldset, $row->getFieldset());
+    }
+
+    public function testGetTime()
+    {
+        $file = new File(new Fieldset);
+        $this->assertTrue($file->getTime() >= 0 && is_numeric($file->getTime()));
+    }
 }

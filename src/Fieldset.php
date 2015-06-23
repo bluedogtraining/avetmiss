@@ -8,7 +8,7 @@ use Bdt\Avetmiss\Exceptions\FieldNotFoundException;
 /**
  * Container for storing multiple Field objects
  */
-class Fieldset implements \IteratorAggregate
+class Fieldset implements \IteratorAggregate, \Countable
 {
     /**
      * @var array
@@ -44,5 +44,10 @@ class Fieldset implements \IteratorAggregate
     public function getIterator()
     {
         return new \ArrayIterator($this->fields);
+    }
+
+    public function count()
+    {
+        return count($this->fields);
     }
 }

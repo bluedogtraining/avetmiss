@@ -19,6 +19,17 @@ class RowTest extends TestCase
         $this->assertEquals(10, $row->getField('foo')->getlength());
     }
 
+    public function testAddAndGetFields()
+    {
+        $row = new Row(new Fieldset);
+        $row->addFields([
+            Field::make('numeric')->name('foo'),
+            Field::make('numeric')->name('bar'),
+        ]);
+
+        $this->assertEquals('foo', $row->getField('foo')->getName());
+        $this->assertEquals('bar', $row->getField('bar')->getName());
+    }
 
     public function testPopulateFields()
     {
@@ -101,5 +112,16 @@ class RowTest extends TestCase
         $fieldset = new Fieldset([Field::make('numeric')->name('test')]);
         $row = new Row($fieldset);
         $this->assertEquals($fieldset, $row->getFieldset());
+    }
+
+    public function testSetField()
+    {
+        $row = new Row(new Fieldset([
+            Field::make('date')->name('foo'), 
+        ]));
+
+        $row->foo = 'not a date';
+
+        $this->assertNull($row->foo);
     }
 }

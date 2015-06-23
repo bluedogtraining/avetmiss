@@ -1,9 +1,9 @@
 <?php
 
-namespace Bdt\Bdt\Avetmiss\Nat\V7;
+namespace Bdt\Avetmiss\Nat\V7;
 
-use Bdt\Bdt\Avetmiss\Fieldset;
-use Bdt\Bdt\Avetmiss\Fields\Field;
+use Bdt\Avetmiss\Fieldset;
+use Bdt\Avetmiss\Fields\Field;
 
 
 class Nat130 extends Fieldset

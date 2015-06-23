@@ -35,7 +35,7 @@ class Fieldset implements \IteratorAggregate, \Countable
     public function getFieldByName($name)
     {
         if (!isset($this->fields[$name])) {
-            throw new FieldNotFoundException($name .' doesn\'t exist in this '.get_called_class()); 
+            throw new FieldNotFoundException($name .' doesn\'t exist in this '.get_called_class());
         }
 
         return $this->fields[$name];

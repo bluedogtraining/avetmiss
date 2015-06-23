@@ -6,7 +6,7 @@ use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\Fields\Field;
 
 
-class Nat020 extends Fieldset 
+class Nat020 extends Fieldset
 {
 
 

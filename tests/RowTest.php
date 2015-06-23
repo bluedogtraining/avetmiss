@@ -117,7 +117,7 @@ class RowTest extends TestCase
     public function testSetField()
     {
         $row = new Row(new Fieldset([
-            Field::make('date')->name('foo'), 
+            Field::make('date')->name('foo'),
         ]));
 
         $row->foo = 'not a date';

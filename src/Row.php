@@ -27,7 +27,7 @@ class Row
      */
     public function addField(Field $field)
     {
-        $this->fieldset->addField($field);
+        $this->fieldset = $this->fieldset->withField($field);
         
         return $this;
     }

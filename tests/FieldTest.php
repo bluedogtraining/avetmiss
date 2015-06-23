@@ -97,4 +97,21 @@ class FieldTest extends TestCase
 
         $this->assertEquals('.......bar', $field->render('bar'));
     }
+
+    public function testFieldImmutability()
+    {
+        $field = Field::make('any');
+
+        $new = $field->name('foo');
+        $this->assertFalse($new == $field);
+
+        $new = $field->in(['bar']);
+        $this->assertFalse($new == $field);
+
+        $new = $field->length(10);
+        $this->assertFalse($new == $field);
+
+        $new = $field->pad('0');
+        $this->assertFalse($new == $field);
+    }
 }

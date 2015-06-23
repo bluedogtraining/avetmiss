@@ -27,6 +27,12 @@ class Fieldset implements \IteratorAggregate, \Countable
         }
     }
 
+    protected function addField(Field $field)
+    {
+        $this->fields[$field->getName()] = $field;
+    }
+    
+
     /**
      * Create a new Fieldset with an additional field.
      *
@@ -35,7 +41,10 @@ class Fieldset implements \IteratorAggregate, \Countable
      */
     public function withField(Field $field)
     {
-        $this->fields[$field->getName()] = $field;
+        $new = clone $this;
+        $new->addField($field);
+
+        return $new;
     }
 
     public function getFieldByName($name)

@@ -26,9 +26,10 @@ abstract class Field
 
     public function name($name)
     {
-        $this->name = $name;
+        $new = clone $this;
+        $new->name = $name;
 
-        return $this;
+        return $new;
     }
 
 
@@ -38,25 +39,28 @@ abstract class Field
             throw new \InvalidArgumentException('length should be an int');
         }
 
-        $this->length = $length;
+        $new = clone $this;
+        $new->length = $length;
 
-        return $this;
+        return $new;
     }
 
 
     public function in(array $array)
     {
-        $this->in = $array;
+        $new = clone $this;
+        $new->in = $array;
 
-        return $this;
+        return $new;
     }
 
 
     public function pad($character = '')
     {
-        $this->pad = $character;
+        $new = clone $this;
+        $new->pad = $character;
 
-        return $this;
+        return $new;
     }
 
 

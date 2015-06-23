@@ -12,6 +12,7 @@
 * `FormatInterface::isFormatValid()` (and implementing classes) now expect a `$value` argument.
 * `Row::getField` now throws `Bdt\Avetmiss\Exceptions\FieldNotFoundException` instead of `UnexistingFieldException`
 * `Row::populateFields` now throws `Bdt\Avetmiss\Exceptions\EmptyRowException` instead of `UnexistingFieldException`
+* `Field::` methods `name`, `length`, `in`, and `pad` now return a new instance of Field instead of modifying the existing instance.
 
 ## Added
 

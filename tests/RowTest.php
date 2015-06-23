@@ -107,13 +107,6 @@ class RowTest extends TestCase
         $this->assertEquals('23324foo               01122014', $row->__toString());
     }
 
-    public function testGetFieldset()
-    {
-        $fieldset = new Fieldset([Field::make('numeric')->name('test')]);
-        $row = new Row($fieldset);
-        $this->assertEquals($fieldset, $row->getFieldset());
-    }
-
     public function testSetField()
     {
         $row = new Row(new Fieldset([

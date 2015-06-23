@@ -59,7 +59,6 @@ class File
         $this->rows[] = $row;
     }
 
-
     /**
      *  Exports the rows to a file
      *
@@ -75,7 +74,6 @@ class File
 
         fclose($file);
     }
-
 
     /**
      * Calculate the time between initialisation of the file and now.

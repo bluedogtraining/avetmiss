@@ -7,6 +7,9 @@ use Bdt\Avetmiss\Exceptions\FieldNotFoundException;
 
 /**
  * Container for storing multiple Field objects
+ * 
+ * Fieldset is an immutable object, and write operations will return a new 
+ * instance of Fieldset instead of modifying the original.
  */
 class Fieldset implements \IteratorAggregate, \Countable
 {
@@ -27,6 +30,11 @@ class Fieldset implements \IteratorAggregate, \Countable
         }
     }
 
+    /**
+     * Add a new field to the existing object.
+     *
+     * @param Field $field
+     */
     protected function addField(Field $field)
     {
         $this->fields[$field->getName()] = $field;

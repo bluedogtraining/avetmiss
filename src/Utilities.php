@@ -2,10 +2,19 @@
 
 namespace Bdt\Avetmiss;
 
+/**
+ * Helper functions for working with AVETMISS.
+ */
 class Utilities
 {
 
 
+    /**
+     * Converts a MySQL formatted date (Y-m-d) to AVETMISS format (dmY).
+     *
+     * @param string $mysql
+     * @return string
+     */
     public static function toDate($mysql = null)
     {
         if (is_null($mysql)) {
@@ -15,9 +24,15 @@ class Utilities
         return date_format(new \DateTime($mysql), 'dmY');
     }
 
-
-    public static function toNameForEncryption($first_name, $last_name)
+    /**
+     * Create an encryption string for AVETMISS.
+     *
+     * @param string $firstName
+     * @param string $lastName
+     * @return string
+     */
+    public static function toNameForEncryption($firstName, $lastName)
     {
-        return $last_name .', '. $first_name;
+        return $lastName .', '. $firstName;
     }
 }

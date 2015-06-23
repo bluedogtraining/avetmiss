@@ -6,24 +6,38 @@ use Bdt\Avetmiss\File;
 use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Exceptions\EmptyRowException;
 
+/**
+ * A Row is a container for a single entry of an AVETMISS data set.
+ */
 class Row
 {
-
+    /**
+     * @var Fieldset
+     */
     protected $fieldset;
+    /**
+     * @var array
+     */
     protected $data = [];
 
+    /**
+     * Create a new Row with a Fieldset definition
+     *
+     * @param Fieldset $fieldset
+     */
     public function __construct(Fieldset $fieldset)
     {
         $this->fieldset = $fieldset;
     }
 
-    public function getFieldset()
-    {
-        return $this->fieldset;
-    }
-
     /**
-     *  Adds a field to this row' structure
+     * Adds a field to this row's structure.
+     *
+     * This will replace the existing Fieldset with a new instance of Fieldset
+     * containing the additional Field.
+     *
+     * @param Field $field
+     * @return self
      */
     public function addField(Field $field)
     {
@@ -34,7 +48,13 @@ class Row
 
 
     /**
-     * Shortcut to add multiple fields
+     * Add multiple fields to this row's structure.
+     * 
+     * This will replace the existing Fieldset with a new instance of Fieldset
+     * containing the additional Field;.
+     *
+     * @param array $fields
+     * return self
      */
     public function addFields(array $fields)
     {
@@ -56,9 +76,9 @@ class Row
 
 
     /**
-     * Returns a populated Row object
+     * Populate the fields for this Row based on a rendered string.
      *
-     * @param $row String
+     * @param string $string
      */
     public function populateFields($string)
     {
@@ -88,7 +108,12 @@ class Row
 
 
     /**
-     *  Populate one of the field
+     * Set the value for a field.
+     *
+     * If the value of the field is invalid, the value will be set to null instead.
+     *
+     * @param string $name
+     * @param mixed $value
      */
     public function __set($name, $value)
     {
@@ -108,6 +133,12 @@ class Row
     }
 
 
+    /**
+     * Get the value for a field.
+     *
+     * @param $name
+     * @return mixed
+     */
     public function __get($name)
     {
         $field = $this->getField($name);
@@ -116,7 +147,9 @@ class Row
 
 
     /**
-     *  Checks if the row' values are valid with the structure
+     * Checks if the row's values are valid with the fieldset definitions.
+     *
+     * @return boolean
      */
     public function isValid()
     {
@@ -132,7 +165,7 @@ class Row
 
 
     /**
-     *  Renders the row to a string, including the required lengths
+     *  Renders the row to a string, including the required lengths and padding.
      */
     public function __toString()
     {

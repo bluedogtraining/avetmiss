@@ -27,7 +27,7 @@ class Nat010 extends Fieldset
             Field::make('any')->name('contact_name')->length(60),
             Field::make('any')->name('telephone_number')->length(20),
             Field::make('any')->name('facsimile_number')->length(20),
-            Field::make('any')->name('email_adress')->length(80),
+            Field::make('any')->name('email_address')->length(80),
         ]);
     }
 }

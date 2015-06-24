@@ -1,7 +1,8 @@
-2.0.0
-=====
+# CHANGELOG
 
-## Changed
+## 3.0.0
+
+### Changed
 
 * Namespace has been changed from `Avetmiss` to `Bdt\Avetmiss`
 * `Row` is no longer an abstract class, and accepts a Fieldset on initialisation.
@@ -16,14 +17,27 @@
 * `Config` is now an abstract class.
 * `Field` protected values `name`, `length`, `in` and `pad` now have implicit `null` values, instead of defined.
 * `FormatInterface` has been removed, its `isFormatValue` is now an abstract method on the abstract `Field` class.
+* Fix typos in:
+  * Nat010: `email_adress`
+  * Nat080: `adress_location_suburb_locality_or_town`
+  * Nat080: `adress_street_number`
+  * Nat080: `adress_street_name`
 
-## Added
+### Added
 
 * Added `Fieldset` class.
 * Added `File::createRow` method.
 * Added `Row::set` and `Row::get` methods. For performance, these should be favoured over the magic `__get` and `__set` methods.
 
-## Removed
+### Removed
 
 * Removed `Field::getValue()`, instead call `Row::__get($fieldName)`
 * Removed `Field::setValue($value)`, instead call `Row::__set($fieldName, $value)`
+
+## 2.0.0 - 2014-03-24
+
+* Support for PHP 5.3 removed.
+
+## 1.0.0 - 2014-03-24
+
+* Initial release.

@@ -13,11 +13,15 @@
 * `Row::getField` now throws `Bdt\Avetmiss\Exceptions\FieldNotFoundException` instead of `UnexistingFieldException`
 * `Row::populateFields` now throws `Bdt\Avetmiss\Exceptions\EmptyRowException` instead of `UnexistingFieldException`
 * `Field::` methods `name`, `length`, `in`, and `pad` now return a new instance of Field instead of modifying the existing instance.
+* `Config` is now an abstract class.
+* `Field` protected values `name`, `length`, `in` and `pad` now have implicit `null` values, instead of defined.
+* `FormatInterface` has been removed, its `isFormatValue` is now an abstract method on the abstract `Field` class.
 
 ## Added
 
 * Added `Fieldset` class.
 * Added `File::createRow` method.
+* Added `Row::set` and `Row::get` methods.
 
 ## Removed
 

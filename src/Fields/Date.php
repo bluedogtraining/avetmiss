@@ -3,13 +3,15 @@
 namespace Bdt\Avetmiss\Fields;
 
 use Bdt\Avetmiss\Fields\Field;
-use Bdt\Avetmiss\Fields\FormatInterface;
 
-
-class Date extends Field implements FormatInterface
+/**
+ * Class that must accept an AVETMISS formatted (dmY) date.
+ */
+class Date extends Field
 {
-
-
+    /**
+     * {@inheritDoc}
+     */
     public function isFormatValid($value)
     {
         $string = $value;

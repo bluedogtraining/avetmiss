@@ -4,16 +4,24 @@ namespace Bdt\Avetmiss\Config;
 
 use Bdt\Avetmiss\Config\Config;
 
-
+/**
+ * Class for AVETMISS Version 7 options.
+ */
 class V7 extends Config
 {
 
+    /**
+     * @var array
+     */
     protected static $recognitionStatus = [
         '11' => 'Nationally accredited qualification designed to lead to a qualification specified in a national Training Package',
         '12' => 'Nationally recognised accredited course, other than a qualification designed to lead to a qualification specified in a national Training Package',
         '14' => 'Other courses'
     ];
 
+    /**
+     * @var array
+     */
     protected static $qualificationCategories = [
         '211' => 'Graduate Diploma',
         '213' => 'Professional Specialist Qualification at Graduate Diploma Level',
@@ -37,6 +45,9 @@ class V7 extends Config
         '999' => 'Education not elsewhere classified'
     ];
     
+    /**
+     * @var array
+     */
     protected static $fundingSourceNational = [
         '11' => 'Commonwealth and state general purpose recurrent',
         '13' => 'Commonwealth specific purpose programs',
@@ -46,22 +57,34 @@ class V7 extends Config
         '80' => 'Revenue earned from another registered training organisation'
     ];
     
+    /**
+     * @var array
+     */
     protected static $commencingCourseOptions = [
         '3' => 'Commencing enrolment in the qualification or course',
         '4' => 'Continuing enrolment in the qualification or course from a previous year',
         '8' => 'Unit of competency or module enrolment only'
     ];
     
+    /**
+     * @var array
+     */
     protected static $vetFlagOptions = [
         'Y' => 'Yes - The intention of the program of study is vocational',
         'N' => 'No - The intention of the program of study is not vocational'
     ];
 
+    /**
+     * @var array
+     */
     protected static $mucFlagOptions = [
         'C' => 'Unit of Competency',
         'M' => 'Module'
     ];
 
+    /**
+     * @var array
+     */
     protected static $deliveryTypes = [
         '10' => 'Classroom-based',
         '20' => 'Electronic based',
@@ -70,10 +93,16 @@ class V7 extends Config
         '90' => 'Not applicable - recognition of prior learning/ recognition of current competency/ credit transfer'
     ];
 
+    /**
+     * @var array
+     */
     protected static $deliveryTypeNotApplicableOutcomes = [
         51, 52, 53, 54, 60, 81, 82
     ];
     
+    /**
+     * @var array
+     */
     protected static $outcomeStatusOptions = [
         20 => 'Competency achieved/pass',
         30 => 'Competency not achieved/fail',
@@ -89,14 +118,23 @@ class V7 extends Config
         82 => 'Non-assessed enrolment - Withdrawn or not satisfactorily completed',
     ];
     
+    /**
+     * @var array
+     */
     protected static $outcomeStatusCodes = [
         20, 30, 40, 51, 52, 53, 54, 60, 70, 81, 82, 90
     ];
     
+    /**
+     * @var array
+     */
     protected static $noCompletionWithOutcomeStatus = [
         30, 40, 52, 54
     ];
 
+    /**
+     * @var array
+     */
     protected static $studyReasonOptions = [
         '01' => 'To get a job',
         '02' => 'To develop my existing business',
@@ -111,6 +149,9 @@ class V7 extends Config
         '@@' => 'Not specified'
     ];
 
+    /**
+     * @var array
+     */
     protected static $states = [
         '01' => 'New South Wales',
         '02' => 'Victoria',
@@ -124,6 +165,9 @@ class V7 extends Config
         '99' => 'Other (Overseas but not an Australian Territory or Dependency)'
     ];
     
+    /**
+     * @var array
+     */
     protected static $statesShort = [
         '01' => 'NSW',
         '02' => 'VIC',
@@ -137,6 +181,9 @@ class V7 extends Config
         '99' => 'Other (Overseas but not an Australian Territory or Dependency)'
     ];
 
+    /**
+     * @var array
+     */
     protected static $clientTitles = [
         'Mr' => 'Mr',
         'Mrs' => 'Mrs',
@@ -148,28 +195,43 @@ class V7 extends Config
         'Sir' => 'Sir'
     ];
 
+    /**
+     * @var array
+     */
     protected static $clientSex = [
         'M' => 'Male',
         'F' => 'Female',
         '@' => 'Not Stated'
     ];
 
+    /**
+     * @var array
+     */
     protected static $booleans = [
         'Y' => 'Yes',
         'N' => 'No'
     ];
     
+    /**
+     * @var array
+     */
     protected static $booleanOptions = [
         '1' => 'Yes',
         '0' => 'No'
     ];
 
+    /**
+     * @var array
+     */
     protected static $atSchool = [
         'Y' => 'Yes - the client is still attending secondary school',
         'N' => 'No - the client is not attending secondary school',
         '@' => 'Not stated (Question asked of the client but no answer provided)'
     ];
 
+    /**
+     * @var array
+     */
     protected static $highestSchoolLevelCompleted = [
         '02' => 'Did not go to school',
         '08' => 'Year 8 or below',
@@ -180,6 +242,9 @@ class V7 extends Config
         '@@' => 'Not stated (Question asked of the client but no answer provided)'
     ];
 
+    /**
+     * @var array
+     */
     protected static $priorEducationAchivements = [
         '008' => 'Bachelor Degree or Higher Degree level (defined for AVETMISS use only)',
         '410' => 'Advanced Diploma or Associate Degree Level',
@@ -191,6 +256,9 @@ class V7 extends Config
         '990' => 'Miscellaneous Education'
     ];
 
+    /**
+     * @var array
+     */
     protected static $labourForceStatus = [
         '01' => 'Full-time employee',
         '02' => 'Part-time employee',
@@ -203,6 +271,9 @@ class V7 extends Config
         '@@' => 'Not stated (Question asked of the client but no answer provided)'
     ];
 
+    /**
+     * @var array
+     */
     protected static $clientIndigenousStatus = [
         '1' => 'Yes, Aboriginal',
         '2' => 'Yes, Torres Strait Islander',
@@ -211,6 +282,9 @@ class V7 extends Config
         '@' => 'Not stated (Question asked of the client but no answer provided)'
     ];
 
+    /**
+     * @var array
+     */
     protected static $proficiencyInSpokenEnglish = [
         '1' => 'Very well',
         '2' => 'Well',
@@ -219,6 +293,9 @@ class V7 extends Config
         '@' => 'Not stated',
     ];
 
+    /**
+     * @var array
+     */
     protected static $disabilityTypes = [
         '11' => 'Hearing/Deaf',
         '12' => 'Physical',

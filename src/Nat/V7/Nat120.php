@@ -6,11 +6,14 @@ use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Config\V7 as Config;
 
-
+/**
+ * Fieldset for the AVETMISS V7 Nat120
+ */
 class Nat120 extends Fieldset
 {
-
-
+    /**
+     * {@inheritDoc}
+     */
     public function __construct()
     {
         parent::__construct([

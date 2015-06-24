@@ -125,7 +125,7 @@ class Row
      * @param string $name
      * @param mixed $value
      */
-    public function __set($name, $value)
+    public function set($name, $value)
     {
         // Ensure the field exists
         $field = $this->getField($name);
@@ -142,6 +142,17 @@ class Row
         }
     }
 
+    /**
+     * Magic method to set the value for a field.
+     *
+     * @see `Row::set`
+     * @param string $name
+     * @param mixed $value
+     */
+    public function __set($name, $value)
+    {
+        $this->set($name, $value);
+    }
 
     /**
      * Get the value for a field.
@@ -149,12 +160,23 @@ class Row
      * @param $name
      * @return mixed
      */
-    public function __get($name)
+    public function get($name)
     {
         $field = $this->getField($name);
         return isset($this->data[$name]) ? $this->data[$name] : null;
     }
 
+    /**
+     * Magic method to get the value for a field.
+     *
+     * @see `Row::get`
+     * @param $name
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        return $this->get($name);
+    }
 
     /**
      * Checks if the row's values are valid with the fieldset definitions.
@@ -164,7 +186,7 @@ class Row
     public function isValid()
     {
         foreach ($this->fieldset as $name => $field) {
-            $value = $this->__get($name);
+            $value = $this->get($name);
             if (!$field->validate($value)) {
                 return false;
             }
@@ -173,16 +195,17 @@ class Row
         return true;
     }
 
-
     /**
-     *  Renders the row to a string, including the required lengths and padding.
+     * Renders the row to a string, including the required lengths and padding.
+     *
+     * @return string
      */
     public function __toString()
     {
         $string = '';
 
         foreach ($this->fieldset as $name => $field) {
-            $value = $this->__get($name);
+            $value = $this->get($name);
             $string .= $field->render($value);
         }
 

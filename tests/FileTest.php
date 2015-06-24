@@ -20,7 +20,7 @@ class FileTest extends TestCase
         $fieldset = new Fieldset([Field::make('any')]);
         $file = new File($fieldset);
 
-        $row = $this->getMockBuilder(Row::class)->disableOriginalConstructor()->getMock();
+        $row = $this->getMockBuilder('\Bdt\Avetmiss\Row')->disableOriginalConstructor()->getMock();
         $row->method('isValid')->withAnyParameters()->willReturn(false);
 
         $file->addRow($row);

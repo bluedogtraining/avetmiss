@@ -5,6 +5,7 @@
         "avetmiss"
     ],
     "homepage": "https://github.com/bluedogtraining/avetmiss",
+    "license": "MIT",
     "authors": [
         {
             "name": "Ryan Senn",

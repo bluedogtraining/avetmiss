@@ -1,24 +1,35 @@
 # Avetmiss
 
-This library is designed to help with the generation of avetmiss nat-files.
+This library is designed to help with the generation of AVETMISS NAT files.
 
 [![Build Status](https://travis-ci.org/bluedogtraining/avetmiss.png?branch=master)](https://travis-ci.org/bluedogtraining/avetmiss)
 
-## How to use
+## Install
+
+Via Composer
+
+``` bash
+$ composer require bluedogtraining/avetmiss
+```
+
+## Usage
 
 The idea behind the library is very simple.
 
-1. you initiate a file
-2. you initiate a row
-3. you add your fields to the row
-4. you add the row to the file
-5. you export the file
+1. Create fieldset with field definitions (or use a bundled fieldset)
+2. Initiate a file with the fieldset.
+3. Create a row from the file.
+4. Populate the row.
+5. Add the populated row back to the file.
+6. Export the file.
 
-### Code example
 
 ```php
+use Bdt\Avetmiss\File;
+use Bdt\Avetmiss\Nat\V7\Nat120;
+
 // array of student courses, pulled from the database
-protected $studentcourses;
+$studentcourses = DB::getStudentCourses();
 
 // initiate a new nat file
 $file = new File(new Nat120);
@@ -31,35 +42,28 @@ foreach($this->studentcourses as $studentcourse) {
         
         $row->client_id = $studentcourse->Student->id;
         $row->subject_id = $studentcourse->Course->id;
-        ...
+        //...
         
         $file->addRow($row);
-    }
-    catch(Exception $e) {
-        // display - log the error
+    } catch(Exception $e) {
+        // Display or log any errors.
     }
 }
 
 $file->export('nat120.txt');
 ```
 
-### Behind the scene
+### Extending
 
-The library comes with existing nat files and rules matching avetmiss version 7.
+The library comes with Fieldset definitions for AVETMISS Version 7 NAT files.
 
-You can very easily add your own nat files if required.
+You can very easily add your own NAT files if required.
 
 ```php
-class MyOwnNat extends Row
-{
-    public function __construct()
-    {
-        $this->addFields([
-            Field::make('date')->name('enrolment_date')->length(8),
-            Field::make('numeric')->name('state_id')->length(2)->pad('0')->in(Config::keys('states')),
-        ]);
-    }
-}
+$myFieldset = new Fieldset([
+    Field::make('date')->name('enrolment_date')->length(8),
+    Field::make('numeric')->name('state_id')->length(2)->pad('0')->in(Config::keys('states')),
+]);
 ```
 
 Or own rules.
@@ -77,10 +81,16 @@ class MyOwnConfig extends Config
 }
 ```
 
-### How to install
+## Change log
 
-Simply add `"bluedogtraining/avetmiss" : "dev-master"` to your composer.json and run a `composer update`.
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-### Running the tests
+## Testing
 
-The library comes with a phpUnit testing suite that you can run with `phpunit` from the root folder.
+``` bash
+$ composer test
+```
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

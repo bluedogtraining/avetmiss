@@ -1,6 +1,6 @@
 <?php
 
-namespace Bdt\Avetmiss\Validators;
+namespace Bdt\Avetmiss\Frameworks\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +15,7 @@ class ValidatorServiceProvider extends ServiceProvider
         $validator->extend('avetmiss', function($attribute, $value, $parameters) {
             $natName = $parameters[0];
             $fieldName = $parameters[1];
-            $validateLength = $paramters[2] == 'true';
+            $validateLength = isset($parameters[2]) && $parameters[2] == 'true';
 
             if (!isset($this->natFieldsets[$natName])) {
                 $natFieldset = '\\Bdt\\Avetmiss\\Nat\\V7\\'.ucfirst($natName);
@@ -24,23 +24,28 @@ class ValidatorServiceProvider extends ServiceProvider
 
             $field = $this->natFieldsets[$natName]->getFieldByName($fieldName);
 
-            $isValid = $field->validate($value);
+            try {
+                $isValid = $field->validate($value);
+            } catch (\InvalidArgumentException $e) {
+                $isValid = false;
+            }
 
             if ($validateLength && $isValid) {
                 $isValid = strlen($value) <= $field->getLength();
             }
 
             return $isValid;
-        }, 'The :attribute must be valid for the :nat_name :field_name field');
+        }, 'The value for :attribute must be valid according to the :nat_name :field_name field');
 
-        $validator->replacer('nat_name', function($message, $attribute, $value, $parameters) {
-            $natName = $paramters[0];
-            return str_replace(':nat_name', ucfirst($natName)); 
-        });
-
-        $validator->replace('field_name', function($message, $attribute, $value, $parameters) {
+        $validator->replacer('avetmiss', function($message, $attribute, $value, $parameters) {
+            $natName   = ucfirst($parameters[0]);
             $fieldName = $parameters[1];
-            return str_replace(':field_name', $fieldName);
+
+            return str_replace([':nat_name', ':field_name'], [$natName, $fieldName], $message);
         });
+    }
+
+    public function register()
+    {
     }
 }

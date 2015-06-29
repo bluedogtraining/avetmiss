@@ -55,7 +55,7 @@ $file->export('nat120.txt');
 
 ### Extending
 
-The library comes with Fieldset definitions for AVETMISS Version 7 NAT files.
+The library comes with preliminary Fieldset definitions for AVETMISS Version 7 NAT files.
 
 You can very easily add your own NAT files if required.
 
@@ -80,6 +80,40 @@ class MyOwnConfig extends Config
     ];
 }
 ```
+
+### Framework Integration
+
+#### Laravel 5
+
+This library comes with a service provider to add rules for validating against
+AVETMISS NAT fields.
+
+To use this, first add the `Bdt\Avetmiss\Frameworks\Laravel\ValidationServiceProvider` to the `providers` array in `config/app.php`.
+
+```php
+$validator = Validator::make([
+    'my_start_date' => '01022000'
+], [
+    'my_start_date' => 'avetmiss:nat120,activity_start_date'
+]);
+
+$isValid = $validator->passes();
+```
+
+You can optionally pass a third boolean parameter to the `avetmiss` rule to enforce a maximum string length.
+
+#### Zend Framework 1
+
+This library comes with a utility for creating Zend Framework 1 validators based
+on AVETMISS NAT fields.
+
+```php
+$factory = new Bdt\Avetmiss\Frameworks\Zf1\ValidatorFactory;
+$validator = $factory->create('nat120', 'activity_start_date');
+$validator->isValid('my_start_date');
+```
+
+You can optionally pass a third boolean parameter to the `ValidatorFactory::create` method to enforce a maximum string length.
 
 ## Change log
 

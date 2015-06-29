@@ -28,6 +28,7 @@
 * Added `Fieldset` class.
 * Added `File::createRow` method.
 * Added `Row::set` and `Row::get` methods. For performance, these should be favoured over the magic `__get` and `__set` methods.
+* Added `Frameworks` directory with framework-specific utilities.
 
 ### Removed
 

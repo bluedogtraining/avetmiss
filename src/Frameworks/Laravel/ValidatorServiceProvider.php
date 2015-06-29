@@ -4,10 +4,19 @@ namespace Bdt\Avetmiss\Frameworks\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Extends the Laravel Validator with AVETMISS validation rules.
+ */
 class ValidatorServiceProvider extends ServiceProvider
 {
+    /**
+     * @param array
+     */
     protected $natFieldsets = [];
 
+    /**
+     * {@inheritDoc}
+     */
     public function boot()
     {
         $validator = $this->app['Illuminate\Contracts\Validation\Factory'];
@@ -45,6 +54,9 @@ class ValidatorServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function register()
     {
     }

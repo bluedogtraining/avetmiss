@@ -40,8 +40,8 @@ foreach($this->studentcourses as $studentcourse) {
     try {
         $row = $file->createRow();
         
-        $row->client_id = $studentcourse->Student->id;
-        $row->subject_id = $studentcourse->Course->id;
+        $row->set('client_id', $studentcourse->Student->id);
+        $row->set('subject_id', $studentcourse->Course->id);
         //...
         
         $file->addRow($row);

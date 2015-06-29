@@ -4,7 +4,7 @@ namespace Bdt\Avetmiss\Validators;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelValidatorServiceProvider extends ServiceProvider
+class ValidatorServiceProvider extends ServiceProvider
 {
     protected $natFieldsets = [];
 

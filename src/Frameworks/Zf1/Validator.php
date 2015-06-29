@@ -1,8 +1,8 @@
 <?php
 
-namespace Bdt\Avetmiss\Validators;
+namespace Bdt\Avetmiss\Frameworks\Zf1;
 
-use Bdt\Avetmiss\Field;
+use Bdt\Avetmiss\Fields\Field;
 use Zend_Validate;
 use Zend_Validate_Callback;
 use Zend_Validate_StringLength;
@@ -11,7 +11,7 @@ use Zend_Validate_InArray;
 /**
  * Zend Framework 1 validator for validating a Field.
  */
-class Zf1Validator extends Zend_Validate
+class Validator extends Zend_Validate
 {
     /**
      * Create a field validator using Zend Framework 1
@@ -28,7 +28,10 @@ class Zf1Validator extends Zend_Validate
         }));
 
         if ($validateLength === true) {
-            $this->addValidator(new Zend_Validate_StringLength($field->getLength()));
+            $this->addValidator(new Zend_Validate_StringLength([
+                'min' => 0,
+                'max' => $field->getLength(),
+            ]));
         }
     }
 }

@@ -12,9 +12,9 @@ class File
      */
     protected $fieldset;
     /**
-     * @var array
+     * @var string
      */
-    protected $rows = [];
+    protected $data = '';
     /**
      * @var integer
      */
@@ -42,11 +42,11 @@ class File
     }
 
     /**
-     * Add a Row to the File. The Fieldset of the Row must match the 
+     * Write a Row to the File. The Fieldset of the Row must match the 
      *
      * @param Row $row
      */
-    public function addRow(Row $row)
+    public function writeRow(Row $row)
     {
         if (!$row->isValid()) {
             throw new \Exception('Cant add invalid row');
@@ -56,22 +56,18 @@ class File
             throw new \Exception('Cant add row with different fieldset');
         }
 
-        $this->rows[] = $row;
+        $this->data = $row->__toString() . "\r\n";
     }
 
     /**
-     *  Exports the rows to a file
+     *  Exports the data to a file
      *
      * @param string $name
      */
     public function export($name)
     {
         $file = fopen($name, 'w');
-
-        foreach ($this->rows as $row) {
-            fwrite($file, $row ."\r\n");
-        }
-
+        fwrite($file, $this->data);
         fclose($file);
     }
 

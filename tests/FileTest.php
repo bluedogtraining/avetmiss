@@ -23,7 +23,7 @@ class FileTest extends TestCase
         $row = $this->getMockBuilder('\Bdt\Avetmiss\Row')->disableOriginalConstructor()->getMock();
         $row->method('isValid')->withAnyParameters()->willReturn(false);
 
-        $file->addRow($row);
+        $file->writeRow($row);
     }
 
     /**
@@ -34,7 +34,7 @@ class FileTest extends TestCase
     {
         $file = new File(new Fieldset([Field::make('any')->name('foo')]));
         $row = new Row(new Fieldset([Field::make('any')->name('bar')]));
-        $file->addRow($row);
+        $file->writeRow($row);
     }
 
 
@@ -52,7 +52,7 @@ class FileTest extends TestCase
         $row->bar = 'bar foo';
         $row->wee = '30112000';
 
-        $file->addRow($row);
+        $file->writeRow($row);
 
         $file->export('nat120.txt');
 

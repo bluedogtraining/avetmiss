@@ -141,7 +141,10 @@ class Row
     public function isValid()
     {
         foreach ($this->fieldset as $name => $field) {
-            $value = $this->get($name);
+            // Not using $this->get() here, as get() checks if the field name
+            // exists in the fieldset. Since we're iterating a fieldset, we know
+            // that the field exists.
+            $value = isset($this->data[$name]) ? $this->data[$name] : null;
             if (!$field->validate($value)) {
                 return false;
             }
@@ -160,7 +163,10 @@ class Row
         $string = '';
 
         foreach ($this->fieldset as $name => $field) {
-            $value = $this->get($name);
+            // Not using $this->get() here, as get() checks if the field name
+            // exists in the fieldset. Since we're iterating a fieldset, we know
+            // that the field exists.
+            $value = isset($this->data[$name]) ? $this->data[$name] : null;
             $string .= $field->render($value);
         }
 

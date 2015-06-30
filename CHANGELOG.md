@@ -22,6 +22,7 @@
   * Nat080: `adress_location_suburb_locality_or_town`
   * Nat080: `adress_street_number`
   * Nat080: `adress_street_name`
+* `File::addRow` is now `File::writeRow` and stores the rendered row string in memory, so that the row can be discarded.
 
 ### Added
 

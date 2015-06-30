@@ -44,7 +44,7 @@ foreach($this->studentcourses as $studentcourse) {
         $row->set('subject_id', $studentcourse->Course->id);
         //...
         
-        $file->addRow($row);
+        $file->writeRow($row);
     } catch(Exception $e) {
         // Display or log any errors.
     }

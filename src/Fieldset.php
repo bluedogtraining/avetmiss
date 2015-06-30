@@ -41,20 +41,6 @@ class Fieldset implements \IteratorAggregate, \Countable
     }
     
 
-    /**
-     * Create a new Fieldset with an additional field.
-     *
-     * @param Field $field
-     * @return Fieldset
-     */
-    public function withField(Field $field)
-    {
-        $new = clone $this;
-        $new->addField($field);
-
-        return $new;
-    }
-
     public function getFieldByName($name)
     {
         if (!isset($this->fields[$name])) {

@@ -9,28 +9,6 @@ use Bdt\Avetmiss\Nat\V7\Nat120;
 
 class RowTest extends TestCase
 {
-
-    public function testAddAndGetField()
-    {
-        $row = new Row(new Fieldset);
-        $row->addField(Field::make('numeric')->name('foo')->length(10));
-
-        $this->assertEquals('foo', $row->getField('foo')->getName());
-        $this->assertEquals(10, $row->getField('foo')->getlength());
-    }
-
-    public function testAddAndGetFields()
-    {
-        $row = new Row(new Fieldset);
-        $row->addFields([
-            Field::make('numeric')->name('foo'),
-            Field::make('numeric')->name('bar'),
-        ]);
-
-        $this->assertEquals('foo', $row->getField('foo')->getName());
-        $this->assertEquals('bar', $row->getField('bar')->getName());
-    }
-
     public function testPopulateFields()
     {
         $rowData = "8901      ACHI100001CPCCCA3012A CPC30208  101020120103201330200000114201133307           @@N             F3 0000 PS100087    0030000@         Y";
@@ -89,7 +67,7 @@ class RowTest extends TestCase
     public function testGetInexistantFieldThrowsException()
     {
         $row = new Row(new Fieldset);
-        $row->getField('foo');
+        $row->getFieldset()->getFieldByName('foo');
     }
 
 

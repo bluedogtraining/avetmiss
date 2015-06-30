@@ -34,6 +34,9 @@
 
 * Removed `Field::getValue()`, instead call `Row::__get($fieldName)`
 * Removed `Field::setValue($value)`, instead call `Row::__set($fieldName, $value)`
+* Removed `Row::getField()`, instead use `Row::getFieldset()->getFieldByName()`
+* Removed `Row::addField()`, fields should now be added directly to the fieldset.
+* Removed `Row::addFields()`, fields should now be added directly to the fieldset.
 
 ## 2.0.0 - 2014-03-24
 

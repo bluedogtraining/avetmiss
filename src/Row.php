@@ -41,51 +41,6 @@ class Row
     }
 
     /**
-     * Adds a field to this row's structure.
-     *
-     * This will replace the existing Fieldset with a new instance of Fieldset
-     * containing the additional Field.
-     *
-     * @param Field $field
-     * @return self
-     */
-    public function addField(Field $field)
-    {
-        $this->fieldset = $this->fieldset->withField($field);
-        
-        return $this;
-    }
-
-
-    /**
-     * Add multiple fields to this row's structure.
-     * 
-     * This will replace the existing Fieldset with a new instance of Fieldset
-     * containing the additional Field;.
-     *
-     * @param array $fields
-     * return self
-     */
-    public function addFields(array $fields)
-    {
-        foreach ($fields as $field) {
-            $this->addField($field);
-        }
-
-        return $this;
-    }
-
-
-    /**
-     *  Returns the field named $name
-     */
-    public function getField($name)
-    {
-        return $this->fieldset->getFieldByName($name);
-    }
-
-
-    /**
      * Populate the fields for this Row based on a rendered string.
      *
      * @param string $string
@@ -128,7 +83,7 @@ class Row
     public function set($name, $value)
     {
         // Ensure the field exists
-        $field = $this->getField($name);
+        $field = $this->fieldset->getFieldByName($name);
         try {
             $isValid = $field->validate($value);
         } catch (\Exception $e) {
@@ -162,7 +117,7 @@ class Row
      */
     public function get($name)
     {
-        $field = $this->getField($name);
+        $field = $this->getFieldset()->getFieldByName($name);
         return isset($this->data[$name]) ? $this->data[$name] : null;
     }
 

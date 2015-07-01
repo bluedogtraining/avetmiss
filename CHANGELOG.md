@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## 3.0.0
+## 3.0.1 - 2015-07-01
+
+* Fix `File::writeRow` not appending to data.
+
+## 3.0.0 - 2015-07-01
 
 ### Changed
 

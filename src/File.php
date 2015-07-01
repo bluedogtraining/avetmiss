@@ -56,7 +56,7 @@ class File
             throw new \Exception('Cant add row with different fieldset');
         }
 
-        $this->data = $row->render() . "\r\n";
+        $this->data .= $row->render() . "\r\n";
     }
 
     /**

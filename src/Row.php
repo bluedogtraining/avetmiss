@@ -89,7 +89,7 @@ class Row
         } catch (\Exception $e) {
             $isValid = false;
         }
-        
+
         if ($isValid) {
             $this->data[$name] = $value;
         } else {
@@ -154,11 +154,21 @@ class Row
     }
 
     /**
-     * Renders the row to a string, including the required lengths and padding.
+     * Shortcut for Row::render
      *
      * @return string
      */
     public function __toString()
+    {
+        return $this->render();
+    }
+
+    /**
+     * Renders the row to a string, including the required lengths and padding.
+     *
+     * @return string
+     */
+    public function render()
     {
         $string = '';
 

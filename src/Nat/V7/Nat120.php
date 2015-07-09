@@ -8,6 +8,10 @@ use Bdt\Avetmiss\Config\V7 as Config;
 
 /**
  * Fieldset for the AVETMISS V7 Nat120
+ *
+ * The Enrolment (NAT00120) file contains a record for each unit of competency 
+ * or module enrolment for a client at a training organisation’s delivery 
+ * location during the collection period.
  */
 class Nat120 extends Fieldset
 {

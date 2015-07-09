@@ -128,3 +128,10 @@ $ composer test
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Attribution
+
+This library is based upon information provided in the 
+[AVETMISS VET Provider Collection Specifications](http://www.ncver.edu.au/wps/wcm/connect/dd52c92e-46c2-4217-9a21-6135c405f482/Avetmiss-r7-vet-provider-specifications-2578.pdf), 
+which is provided under a [Creative Commons Attribution 3.0 Australia license](http://creativecommons.org/licenses/by/3.0/au/).
+

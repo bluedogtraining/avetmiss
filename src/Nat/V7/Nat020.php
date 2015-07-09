@@ -7,6 +7,12 @@ use Bdt\Avetmiss\Fields\Field;
 
 /**
  * Fieldset for the AVETMISS V7 Nat020
+ *
+ * The Training organisation delivery location (NAT00020) file contains a record for each training
+ * delivery location associated with enrolment activity in a training organisation during the collection
+ * period.
+ *
+ * A training organisation delivery location is a specific training site.
  */
 class Nat020 extends Fieldset
 {

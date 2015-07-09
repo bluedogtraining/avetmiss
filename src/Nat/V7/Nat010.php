@@ -7,6 +7,8 @@ use Bdt\Avetmiss\Fields\Field;
 
 /**
  * Fieldset for the AVETMISS V7 Nat010
+ *
+ * The Training organisation (NAT00010) file contains records about training organisations. 
  */
 class Nat010 extends Fieldset
 {

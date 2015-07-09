@@ -7,6 +7,9 @@ use Bdt\Avetmiss\Fields\Field;
 
 /**
  * Fieldset for the AVETMISS V7 Nat085
+ *
+ * The Client postal details (NAT00085) file stores address details of clients 
+ * for mailing lists under the administration of states and territories.
  */
 class Nat085 extends Fieldset
 {

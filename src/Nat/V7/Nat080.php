@@ -7,6 +7,13 @@ use Bdt\Avetmiss\Fields\Field;
 
 /**
  * Fieldset for the AVETMISS V7 Nat080
+ *
+ * The Client (NAT00080) file contains a record for each client who has 
+ * participated in VET activity during the collection period or whose completion 
+ * of a program of study is reported during the collection period.
+ *
+ * A client is an individual who is engaged in or has completed a program of 
+ * study.
  */
 class Nat080 extends Fieldset
 {

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.2 - 2015-07-09
+
+* Add NAT file descriptions
+* Add CC attribution
+
 ## 3.0.1 - 2015-07-01
 
 * Fix `File::writeRow` not appending to data.

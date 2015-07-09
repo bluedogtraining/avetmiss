@@ -6,7 +6,14 @@ use Bdt\Avetmiss\Fieldset;
 use Bdt\Avetmiss\Fields\Field;
 
 /**
- * Fieldset for the AVETMISS V7 Nat030
+ * Fieldset for the AVETMISS V7 Nat030 - 
+ *
+ * The Program (NAT00030) file contains a record for each qualification, course 
+ * or skill set associated with enrolments and completions during the collection 
+ * period.
+ *
+ * A qualification, course or skill set is a structured program that may include 
+ * practical experience.
  */
 class Nat030 extends Fieldset
 {

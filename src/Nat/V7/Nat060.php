@@ -7,6 +7,12 @@ use Bdt\Avetmiss\Fields\Field;
 
 /**
  * Fieldset for the AVETMISS V7 Nat060
+ *
+ * The Subject (NAT00060) file contains a record for each unit of competency or 
+ * module associated with enrolment activity during the collection period.
+ *
+ * A unit of competency or module can be studied independently but is usually 
+ * offered as part of a qualification, course or skill set.
  */
 class Nat060 extends Fieldset
 {

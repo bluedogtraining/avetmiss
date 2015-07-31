@@ -245,7 +245,7 @@ class V7 extends Config
     /**
      * @var array
      */
-    protected static $priorEducationAchivements = [
+    protected static $priorEducationAchievements = [
         '008' => 'Bachelor Degree or Higher Degree level (defined for AVETMISS use only)',
         '410' => 'Advanced Diploma or Associate Degree Level',
         '420' => 'Diploma Level',

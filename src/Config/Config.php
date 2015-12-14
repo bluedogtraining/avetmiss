@@ -17,6 +17,21 @@ namespace Bdt\Avetmiss\Config;
  */
 abstract class Config
 {
+
+    /**
+     * Get the array for a given configuration option.
+     *
+     * @param string $name
+     *
+     * @return array
+     */
+    public static function get($name)
+    {
+        self::check($name);
+
+        return static::$$name;
+    }
+
     /**
      * Get the keys for a given configuration option.
      *

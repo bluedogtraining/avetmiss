@@ -2,8 +2,6 @@
 
 namespace Bdt\Avetmiss\Config;
 
-use Bdt\Avetmiss\Config\Config;
-
 /**
  * Class for AVETMISS Version 7 options.
  */

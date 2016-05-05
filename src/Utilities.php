@@ -8,11 +8,11 @@ namespace Bdt\Avetmiss;
 class Utilities
 {
 
-
     /**
      * Converts a MySQL formatted date (Y-m-d) to AVETMISS format (dmY).
      *
      * @param string $mysql
+     *
      * @return string
      */
     public static function toDate($mysql = null)
@@ -29,10 +29,11 @@ class Utilities
      *
      * @param string $firstName
      * @param string $lastName
+     *
      * @return string
      */
     public static function toNameForEncryption($firstName, $lastName)
     {
-        return $lastName .', '. $firstName;
+        return $lastName . ', ' . $firstName;
     }
 }

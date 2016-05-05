@@ -11,6 +11,7 @@ use Bdt\Avetmiss\Exceptions\EmptyRowException;
  */
 class Row
 {
+
     /**
      * @var Fieldset
      */
@@ -55,7 +56,7 @@ class Row
         }
 
         if ($length == 0) {
-            throw new EmptyRowException('The row '. get_called_class() .' to be populated contains no fields');
+            throw new EmptyRowException('The row ' . get_called_class() . ' to be populated contains no fields');
         }
 
         if (strlen($string) != $length) {
@@ -71,14 +72,13 @@ class Row
         return $this;
     }
 
-
     /**
      * Set the value for a field.
      *
      * If the value of the field is invalid, the value will be set to null instead.
      *
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function set($name, $value)
     {
@@ -86,13 +86,15 @@ class Row
         $field = $this->fieldset->getFieldByName($name);
         try {
             $isValid = $field->validate($value);
-        } catch (\Exception $e) {
+        }
+        catch(\Exception $e) {
             $isValid = false;
         }
 
         if ($isValid) {
             $this->data[$name] = $value;
-        } else {
+        }
+        else {
             $this->data[$name] = null;
         }
     }
@@ -101,8 +103,9 @@ class Row
      * Magic method to set the value for a field.
      *
      * @see `Row::set`
+     *
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function __set($name, $value)
     {
@@ -113,11 +116,13 @@ class Row
      * Get the value for a field.
      *
      * @param $name
+     *
      * @return mixed
      */
     public function get($name)
     {
         $field = $this->getFieldset()->getFieldByName($name);
+
         return isset($this->data[$name]) ? $this->data[$name] : null;
     }
 
@@ -125,7 +130,9 @@ class Row
      * Magic method to get the value for a field.
      *
      * @see `Row::get`
+     *
      * @param $name
+     *
      * @return mixed
      */
     public function __get($name)

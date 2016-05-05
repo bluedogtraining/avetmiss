@@ -36,6 +36,7 @@ abstract class Config
      * Get the keys for a given configuration option.
      *
      * @param string $name
+     *
      * @return array
      */
     public static function keys($name)
@@ -49,6 +50,7 @@ abstract class Config
      * Get the values for a given configuration option.
      *
      * @param string $name
+     *
      * @return array
      */
     public static function values($name)
@@ -62,13 +64,15 @@ abstract class Config
      * Check that a given configuration option exists.
      *
      * @throws \DomainException
+     *
      * @param string $name
+     *
      * @return boolean
      */
     private static function check($name)
     {
         if (!isset(static::$$name)) {
-            throw new \DomainException('could not find '. $name .' in the config');
+            throw new \DomainException('could not find ' . $name . ' in the config');
         }
     }
 }

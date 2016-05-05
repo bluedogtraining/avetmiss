@@ -2,13 +2,12 @@
 
 namespace Bdt\Avetmiss\Fields;
 
-use Bdt\Avetmiss\Fields\Field;
-
 /**
  * Class that must accept an AVETMISS formatted (dmY) date.
  */
 class Date extends Field
 {
+
     /**
      * {@inheritDoc}
      */

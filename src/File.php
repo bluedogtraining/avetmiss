@@ -7,6 +7,7 @@ namespace Bdt\Avetmiss;
  */
 class File
 {
+
     /**
      * @var Fieldset
      */
@@ -22,7 +23,7 @@ class File
 
     /**
      * Create a new File with a Fieldset definition
-     * 
+     *
      * @param Fieldset $fieldset
      */
     public function __construct(Fieldset $fieldset)
@@ -42,7 +43,7 @@ class File
     }
 
     /**
-     * Write a Row to the File. The Fieldset of the Row must match the 
+     * Write a Row to the File. The Fieldset of the Row must match the
      *
      * @param Row $row
      */

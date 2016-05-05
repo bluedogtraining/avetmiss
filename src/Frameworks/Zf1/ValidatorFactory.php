@@ -11,6 +11,7 @@ use Zend_Validate_StringLength;
  */
 class ValidatorFactory
 {
+
     /**
      * @var array
      */
@@ -19,15 +20,16 @@ class ValidatorFactory
     /**
      * Create a new validator for a NAT field.
      *
-     * @param string $natName
-     * @param string $fieldName
+     * @param string  $natName
+     * @param string  $fieldName
      * @param boolean $validateLength
+     *
      * @return Zend_Validate
      */
     public function create($natName, $fieldName, $validateLength = false)
     {
         if (!isset($this->natFieldsets[$natName])) {
-            $natFieldset = '\\Bdt\Avetmiss\\Nat\\V7\\'.ucfirst($natName);
+            $natFieldset = '\\Bdt\Avetmiss\\Nat\\V7\\' . ucfirst($natName);
             $this->natFieldsets[$natName] = new $natFieldset;
         }
 
@@ -35,21 +37,30 @@ class ValidatorFactory
 
         $validator = new Zend_Validate();
 
-        $validator->addValidator(new Zend_Validate_Callback(function($value) use ($field) {
-            try {
-                $isValid = $field->validate($value);
-            } catch (\InvalidArgumentException $e) {
-                $isValid = false;
-            }
+        $validator->addValidator(
+            new Zend_Validate_Callback(
+                function ($value) use ($field) {
+                    try {
+                        $isValid = $field->validate($value);
+                    }
+                    catch(\InvalidArgumentException $e) {
+                        $isValid = false;
+                    }
 
-            return $isValid;
-        }));
+                    return $isValid;
+                }
+            )
+        );
 
         if ($validateLength === true) {
-            $validator->addValidator(new Zend_Validate_StringLength([
-                'min' => 0,
-                'max' => $field->getLength(),
-            ]));
+            $validator->addValidator(
+                new Zend_Validate_StringLength(
+                    [
+                        'min' => 0,
+                        'max' => $field->getLength(),
+                    ]
+                )
+            );
         }
 
         return $validator;

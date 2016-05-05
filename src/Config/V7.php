@@ -42,7 +42,7 @@ class V7 extends Config
         '992' => 'Bridging and Enabling Courses Not Identifiable by Level',
         '999' => 'Education not elsewhere classified'
     ];
-    
+
     /**
      * @var array
      */
@@ -54,7 +54,7 @@ class V7 extends Config
         '30' => 'International full fee-paying client',
         '80' => 'Revenue earned from another registered training organisation'
     ];
-    
+
     /**
      * @var array
      */
@@ -63,7 +63,7 @@ class V7 extends Config
         '4' => 'Continuing enrolment in the qualification or course from a previous year',
         '8' => 'Unit of competency or module enrolment only'
     ];
-    
+
     /**
      * @var array
      */
@@ -95,9 +95,15 @@ class V7 extends Config
      * @var array
      */
     protected static $deliveryTypeNotApplicableOutcomes = [
-        51, 52, 53, 54, 60, 81, 82
+        51,
+        52,
+        53,
+        54,
+        60,
+        81,
+        82
     ];
-    
+
     /**
      * @var array
      */
@@ -115,19 +121,33 @@ class V7 extends Config
         81 => 'Non-assessed enrolment - Satisfactorily completed',
         82 => 'Non-assessed enrolment - Withdrawn or not satisfactorily completed',
     ];
-    
+
     /**
      * @var array
      */
     protected static $outcomeStatusCodes = [
-        20, 30, 40, 51, 52, 53, 54, 60, 70, 81, 82, 90
+        20,
+        30,
+        40,
+        51,
+        52,
+        53,
+        54,
+        60,
+        70,
+        81,
+        82,
+        90
     ];
-    
+
     /**
      * @var array
      */
     protected static $noCompletionWithOutcomeStatus = [
-        30, 40, 52, 54
+        30,
+        40,
+        52,
+        54
     ];
 
     /**
@@ -162,7 +182,7 @@ class V7 extends Config
         '09' => 'Other Australian Territories or Dependencies',
         '99' => 'Other (Overseas but not an Australian Territory or Dependency)'
     ];
-    
+
     /**
      * @var array
      */
@@ -183,14 +203,14 @@ class V7 extends Config
      * @var array
      */
     protected static $clientTitles = [
-        'Mr' => 'Mr',
-        'Mrs' => 'Mrs',
+        'Mr'   => 'Mr',
+        'Mrs'  => 'Mrs',
         'Miss' => 'Miss',
-        'Ms' => 'Ms',
-        'Dr' => 'Dr',
-        'Rev' => 'Rev',
-        'Hon' => 'Hon',
-        'Sir' => 'Sir'
+        'Ms'   => 'Ms',
+        'Dr'   => 'Dr',
+        'Rev'  => 'Rev',
+        'Hon'  => 'Hon',
+        'Sir'  => 'Sir'
     ];
 
     /**
@@ -209,7 +229,7 @@ class V7 extends Config
         'Y' => 'Yes',
         'N' => 'No'
     ];
-    
+
     /**
      * @var array
      */

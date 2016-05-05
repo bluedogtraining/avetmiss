@@ -2,24 +2,31 @@
 
 namespace Bdt\Avetmiss\Fields;
 
+use InvalidArgumentException;
+use UnexpectedValueException;
+
 /**
  * Class for defining a field. This object is immutable, any write operations
  * will return a new Field object, instead of modifying the original.
  */
 abstract class Field
 {
+
     /**
      * @var string
      */
     protected $name;
+
     /**
      * @var integer
      */
     protected $length;
+
     /**
      * @var array
      */
     protected $in;
+
     /**
      * @var string
      */
@@ -35,7 +42,7 @@ abstract class Field
      */
     public static function make($type)
     {
-        $field = 'Bdt\Avetmiss\Fields\\'. ucfirst($type);
+        $field = 'Bdt\Avetmiss\Fields\\' . ucfirst($type);
 
         return new $field;
     }
@@ -44,6 +51,7 @@ abstract class Field
      * Create a new Field, based on the original, with a set name.
      *
      * @param string $name
+     *
      * @return Field
      */
     public function name($name)
@@ -57,14 +65,16 @@ abstract class Field
     /**
      * Create a new Field, based on the original, with a set length.
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
+     *
      * @param string $length
+     *
      * @return Field
      */
     public function length($length)
     {
         if (!is_int($length)) {
-            throw new \InvalidArgumentException('length should be an int');
+            throw new InvalidArgumentException('length should be an int');
         }
 
         $new = clone $this;
@@ -77,6 +87,7 @@ abstract class Field
      * Create a new Field, based on the original, with a set array of values to accept.
      *
      * @param array $array
+     *
      * @return Field
      */
     public function in(array $array)
@@ -91,6 +102,7 @@ abstract class Field
      * Create a new Field, based on the original, with a set pad value.
      *
      * @param string $character
+     *
      * @return Field
      */
     public function pad($character = '')
@@ -111,7 +123,6 @@ abstract class Field
         return $this->name;
     }
 
-
     /**
      * Get the length set on the Field.
      *
@@ -125,19 +136,21 @@ abstract class Field
     /**
      * Check that a provided value is valid, based on the rules of the Field.
      *
-     * @throws \UnexpectedValueException
-     * @throws \InvalidArgumentException
+     * @throws UnexpectedValueException
+     * @throws InvalidArgumentException
+     *
      * @param mixed $value
+     *
      * @return boolean
      */
     public function validate($value)
     {
-        if (!is_null($this->in) && !in_array($value, $this->in)) {
-            throw new \UnexpectedValueException($value .' could not be found in the requested config array');
+        if ($this->in !== null && !in_array($value, $this->in)) {
+            throw new UnexpectedValueException($value . ' could not be found in the requested config array');
         }
 
         if (!$this->isFormatValid($value)) {
-            throw new \InvalidArgumentException($value .' is not a valid value for '. $this->name);
+            throw new InvalidArgumentException($value . ' is not a valid value for ' . $this->name);
         }
 
         return true;
@@ -147,6 +160,7 @@ abstract class Field
      * Renders $value according to the Field definition.
      *
      * @param mixed $input
+     *
      * @return string
      */
     public function render($input)
@@ -158,7 +172,7 @@ abstract class Field
         $value = substr($value, 0, $this->length);
 
         // add pad if selected
-        if (!is_null($this->pad)) {
+        if ($this->pad !== null) {
             $value = str_pad($value, $this->length, $this->pad, STR_PAD_LEFT);
         }
 
@@ -170,6 +184,7 @@ abstract class Field
      * Check if the format of the provided value is valid.
      *
      * @param mixed $value
+     *
      * @return boolean
      */
     abstract public function isFormatValid($value);

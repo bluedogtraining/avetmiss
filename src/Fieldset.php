@@ -2,8 +2,13 @@
 
 namespace Bdt\Avetmiss;
 
+use IteratorAggregate;
+use Countable;
+
 use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Exceptions\FieldNotFoundException;
+
+use ArrayIterator;
 
 /**
  * Container for storing multiple Field objects
@@ -11,7 +16,7 @@ use Bdt\Avetmiss\Exceptions\FieldNotFoundException;
  * Fieldset is an immutable object, and write operations will return a new
  * instance of Fieldset instead of modifying the original.
  */
-class Fieldset implements \IteratorAggregate, \Countable
+class Fieldset implements IteratorAggregate, Countable
 {
 
     /**
@@ -57,7 +62,7 @@ class Fieldset implements \IteratorAggregate, \Countable
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->fields);
+        return new ArrayIterator($this->fields);
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace Bdt\Avetmiss;
 
+use DateTime;
+
 /**
  * Helper functions for working with AVETMISS.
  */
@@ -21,7 +23,7 @@ class Utilities
             return null;
         }
 
-        return date_format(new \DateTime($mysql), 'dmY');
+        return date_format(new DateTime($mysql), 'dmY');
     }
 
     /**

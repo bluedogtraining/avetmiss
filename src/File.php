@@ -2,6 +2,8 @@
 
 namespace Bdt\Avetmiss;
 
+use Exception;
+
 /**
  * A File represents a collection of Rows.
  */
@@ -12,10 +14,12 @@ class File
      * @var Fieldset
      */
     protected $fieldset;
+
     /**
      * @var string
      */
     protected $data = '';
+
     /**
      * @var integer
      */
@@ -46,18 +50,30 @@ class File
      * Write a Row to the File. The Fieldset of the Row must match the
      *
      * @param Row $row
+     *
+     * @throws Exception
      */
     public function writeRow(Row $row)
     {
         if (!$row->isValid()) {
-            throw new \Exception('Cant add invalid row');
+            throw new Exception('Cant add invalid row');
         }
 
         if ($row->getFieldset() != $this->fieldset) {
-            throw new \Exception('Cant add row with different fieldset');
+            throw new Exception('Cant add row with different fieldset');
         }
 
         $this->data .= $row->render() . "\r\n";
+    }
+
+    /**
+     * Returns the formatted data
+     *
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**

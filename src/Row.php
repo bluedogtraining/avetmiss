@@ -2,9 +2,8 @@
 
 namespace Bdt\Avetmiss;
 
-use Bdt\Avetmiss\File;
-use Bdt\Avetmiss\Fields\Field;
 use Bdt\Avetmiss\Exceptions\EmptyRowException;
+use InvalidArgumentException;
 
 /**
  * A Row is a container for a single entry of an AVETMISS data set.
@@ -16,6 +15,7 @@ class Row
      * @var Fieldset
      */
     protected $fieldset;
+
     /**
      * @var array
      */
@@ -45,6 +45,9 @@ class Row
      * Populate the fields for this Row based on a rendered string.
      *
      * @param string $string
+     *
+     * @return $this
+     * @throws EmptyRowException
      */
     public function populateFields($string)
     {
@@ -60,7 +63,7 @@ class Row
         }
 
         if (strlen($string) != $length) {
-            throw new \InvalidArgumentException('Invalid data to create this row');
+            throw new InvalidArgumentException('Invalid data to create this row');
         }
 
         foreach ($this->fieldset as $name => $field) {
@@ -121,8 +124,6 @@ class Row
      */
     public function get($name)
     {
-        $field = $this->getFieldset()->getFieldByName($name);
-
         return isset($this->data[$name]) ? $this->data[$name] : null;
     }
 

@@ -44,7 +44,7 @@ class Nat120 extends Fieldset
                 Field::make('numeric')->name('client_tuition_fee')->length(4)->pad(0),
                 Field::make('any')->name('fee_exemption_concession_type_id')->length(1),
                 Field::make('any')->name('purchasing_contract_id')->length(12),
-                Field::make('any')->name('purchasing_contract_schedule_id')->length(3),
+                Field::make('any')->name('purchasing_contract_schedule_id')->length(3)->pad(0),
                 Field::make('numeric')->name('hours_attended')->length(4)->pad(0),
                 Field::make('any')->name('associated_course_id')->length(10),
                 Field::make('any')->name('full_time_learning_option')->length(1)->in(Config::keys('booleans')),

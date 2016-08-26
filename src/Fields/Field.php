@@ -2,8 +2,9 @@
 
 namespace Bdt\Avetmiss\Fields;
 
+use Bdt\Avetmiss\Exceptions\FieldNotValidException;
+
 use InvalidArgumentException;
-use UnexpectedValueException;
 
 /**
  * Class for defining a field. This object is immutable, any write operations

@@ -4,10 +4,8 @@ namespace Bdt\Avetmiss\Tests;
 
 use Bdt\Avetmiss\Fields\Field;
 
-
 class FieldTest extends TestCase
 {
-
 
     /**
      * @expectedException \InvalidArgumentException
@@ -17,7 +15,6 @@ class FieldTest extends TestCase
         $field = Field::make('any')->length('z');
     }
 
-
     public function testExportSpacesPad()
     {
         $field = Field::make('any')->name('foo')->length(10);
@@ -26,7 +23,6 @@ class FieldTest extends TestCase
         $this->assertEquals('bar       ', $field->render('bar'));
     }
 
-
     public function testCutIflengthIsToLong()
     {
         $field = Field::make('any')->name('foo')->length(10);
@@ -34,7 +30,6 @@ class FieldTest extends TestCase
         // 12 characters
         $this->assertEquals(10, strlen($field->render('foobarfoobar')));
     }
-
 
     /**
      * @expectedException Exception
@@ -45,13 +40,11 @@ class FieldTest extends TestCase
         $field->validate('bar');
     }
 
-
     public function testValidDateFormat()
     {
         $field = Field::make('date')->name('foo')->length(8);
         $field->validate('02032014');
     }
-    
 
     // make, length, name, in, pad should all return a Field object
     public function testFluentBuilder()
@@ -72,7 +65,6 @@ class FieldTest extends TestCase
         $this->assertInstanceOf('Bdt\Avetmiss\Fields\Field', $field);
     }
 
-
     public function testInWithValidValue()
     {
         $field = Field::make('any')->name('foo')->length(10)->in(['bar']);
@@ -80,16 +72,14 @@ class FieldTest extends TestCase
         $this->assertEquals('bar       ', $field->render('bar'));
     }
 
-
     /**
-     * @expectedException \UnexpectedValueException
+     * @expectedException \Bdt\Avetmiss\Exceptions\FieldNotValidException
      */
     public function testInWithInvalidValue()
     {
         $field = Field::make('any')->name('foo')->length(10)->in(['bar']);
         $field->validate('fiddy');
     }
-
 
     public function testPad()
     {

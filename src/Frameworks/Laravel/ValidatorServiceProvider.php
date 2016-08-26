@@ -4,6 +4,8 @@ namespace Bdt\Avetmiss\Frameworks\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
+use Bdt\Avetmiss\Exceptions\FieldNotValidException;
+
 /**
  * Extends the Laravel Validator with AVETMISS validation rules.
  */
@@ -39,7 +41,7 @@ class ValidatorServiceProvider extends ServiceProvider
                 try {
                     $isValid = $field->validate($value);
                 }
-                catch(\InvalidArgumentException $e) {
+                catch(FieldNotValidException $e) {
                     $isValid = false;
                 }
 

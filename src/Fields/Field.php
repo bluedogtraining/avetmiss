@@ -136,21 +136,23 @@ abstract class Field
     /**
      * Check that a provided value is valid, based on the rules of the Field.
      *
-     * @throws UnexpectedValueException
-     * @throws InvalidArgumentException
-     *
      * @param mixed $value
      *
-     * @return boolean
+     * @throws FieldNotValidException
+     *
+     * @return bool
      */
     public function validate($value)
     {
         if ($this->in !== null && !in_array($value, $this->in)) {
-            throw new UnexpectedValueException($value . ' could not be found in the requested config array');
+
+            $values = implode(', ', $this->in);
+
+            throw new FieldNotValidException($value . ' could not be found in the requested config array for field ' . $this->name . '. Available values are: ' . $values);
         }
 
         if (!$this->isFormatValid($value)) {
-            throw new InvalidArgumentException($value . ' is not a valid value for ' . $this->name);
+            throw new FieldNotValidException($value . ' is not a valid value for field ' . $this->name);
         }
 
         return true;

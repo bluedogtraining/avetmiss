@@ -46,6 +46,12 @@ class Fieldset implements IteratorAggregate, Countable
         $this->fields[$field->getName()] = $field;
     }
 
+    /**
+     * @param $name
+     *
+     * @return mixed
+     * @throws FieldNotFoundException
+     */
     public function getFieldByName($name)
     {
         if (!isset($this->fields[$name])) {

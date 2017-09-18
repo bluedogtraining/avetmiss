@@ -3,7 +3,9 @@
 namespace Bdt\Avetmiss\Tests;
 
 use Illuminate\Container\Container;
-use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Translator as SymfonyTranslator;
+use Illuminate\Translation\Translator as LaravelTranslator;
+use Illuminate\Translation\ArrayLoader;
 use Illuminate\Validation\Factory;
 use Bdt\Avetmiss\Frameworks\Laravel\ValidatorServiceProvider;
 
@@ -13,9 +15,15 @@ class LaravelValidationServiceProviderTest extends TestCase
 
     public function setup()
     {
+
+        if (version_compare(PHP_VERSION, '5.6.4') >= 0) {
+            $translator = new LaravelTranslator(new ArrayLoader, 'en');
+        } else {
+            $translator = new SymfonyTranslator('en');
+        }
+
         $container = new Container();
-        $translator = new Translator('en');
-        $this->factory = new Factory($translator, $container);
+        $this->factory = new Factory($translator, $container);    
         $container['Illuminate\Contracts\Validation\Factory'] = $this->factory;
 
         $serviceProvider = new ValidatorServiceProvider($container);

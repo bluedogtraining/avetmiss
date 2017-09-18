@@ -100,8 +100,9 @@ class V7 extends Config
         53,
         54,
         60,
-        81,
-        82
+        // Commenting these out because we're in an interum version, not quite in V8 yet but this change is currently active for V7
+        // 81,
+        // 82
     ];
 
     /**

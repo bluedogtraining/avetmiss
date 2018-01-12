@@ -216,6 +216,32 @@ class V8 extends Config
     /**
      * @var array
      */
+    protected static $schoolTypes = [
+        '21'   => 'School - Government',
+        '25'  => 'School - Catholic',
+        '27' => 'School - Independent',
+        '31'   => 'Technical and Further Education institute',
+        '61'   => 'Community based adult education provider',
+        '91'  => 'Privately operated registered training organisation',
+        '92'  => 'Home school arrangement'
+    ];
+
+    /**
+     * @var array
+     */
+    protected static $contactSurveyStatuses = [
+        'A'   => 'Available for survey use',
+        'C' => 'Correctional facility (address or enrolment)',
+        'D'   => 'Deceased Student',
+        'E'   => 'Excluded from survey use',
+        'I'  => 'Invalid address/itinerant student (very low likelihood of response)',
+        'M'  => 'Minor - Under age of 15 (Not to be surveyed)',
+        'O' => 'Overseas (address or enrolment'
+    ];
+
+    /**
+     * @var array
+     */
     protected static $clientSex = [
         'M' => 'Male',
         'F' => 'Female',

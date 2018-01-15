@@ -80,7 +80,7 @@ class V8 extends Config
         'E' => 'External delivery (e.g. online)',
         'W' => 'Workplace based delivery',
         'N' => 'Not applicable (e.g. RPL & CT)'
-        ]
+        ];
 
     /**
      * @var array
@@ -94,7 +94,7 @@ class V8 extends Config
         'NYY' => 'Combination of external and workplace based',
         'YYY' => 'Combination of all modes',
         'NNN' => 'Not applicable (RPL or credit transfer)'
-    ]
+    ];
 
     /**
      * @var array

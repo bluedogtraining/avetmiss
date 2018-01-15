@@ -39,7 +39,7 @@ class Nat120 extends Fieldset
                 Field::make('any')->name('study_reason_id')->length(2),
                 Field::make('any')->name('vet_in_schools_flag')->length(1),
                 Field::make('any')->name('specific_funding_id')->length(10),
-                Field::make('numeric')->name('school_type_identifier')->length(2),
+                Field::make('any')->name('school_type_identifier')->length(2),
                 Field::make('any')->name('outcome_id_training_organisation')->length(3),
                 Field::make('any')->name('funding_source_state_training_authority')->length(3),
                 Field::make('numeric')->name('client_tuition_fee')->length(5)->pad(0),

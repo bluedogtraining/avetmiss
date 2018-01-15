@@ -75,10 +75,26 @@ class V8 extends Config
     /**
      * @var array
      */
-    protected static $mucFlagOptions = [
-        'C' => 'Unit of Competency',
-        'M' => 'Module'
-    ];
+    protected static $predominantDeliveryModes = [
+        'I' => 'Internal delivery (e.g. classroom based)',
+        'E' => 'External delivery (e.g. online)',
+        'W' => 'Workplace based delivery',
+        'N' => 'Not applicable (e.g. RPL & CT)'
+        ]
+
+    /**
+     * @var array
+     */
+    protected static $deliveryModeIdentifiers = [
+        'YNN' => 'Internal only',
+        'NYN' => 'External only',
+        'NNY' => 'Workplace based only',
+        'YYN' => 'Combination of internal and external',
+        'YNY' => 'Combination of internal and workplace based',
+        'NYY' => 'Combination of external and workplace based',
+        'YYY' => 'Combination of all modes',
+        'NNN' => 'Not applicable (RPL or credit transfer)'
+    ]
 
     /**
      * @var array
@@ -229,14 +245,14 @@ class V8 extends Config
     /**
      * @var array
      */
-    protected static $contactSurveyStatuses = [
+    protected static $surveyContactStatuses = [
         'A'   => 'Available for survey use',
         'C' => 'Correctional facility (address or enrolment)',
-        'D'   => 'Deceased Student',
+        'D'   => 'Deceased student',
         'E'   => 'Excluded from survey use',
         'I'  => 'Invalid address/itinerant student (very low likelihood of response)',
         'M'  => 'Minor - Under age of 15 (Not to be surveyed)',
-        'O' => 'Overseas (address or enrolment'
+        'O' => 'Overseas (address or enrolment)'
     ];
 
     /**

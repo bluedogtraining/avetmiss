@@ -46,7 +46,9 @@ class Nat080 extends Fieldset
                 Field::make('any')->name('address_street_number')->length(15),
                 Field::make('any')->name('address_street_name')->length(70),
                 Field::make('any')->name('survey_contact_status')->length(1),
-                Field::make('any')->name('learner_unique_identifier')->length(10),
+                Field::make('any')->name('learner_unique_identifier')->length(10), // state specific
+                Field::make('any')->name('statistical_area_level_1_id')->length(11),
+                Field::make('any')->name('statistical_area_level_2_id')->length(9),
             ]
         );
     }

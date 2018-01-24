@@ -36,6 +36,9 @@ class Utilities
      */
     public static function toNameForEncryption($firstName, $lastName)
     {
+        if(empty($lastName)){
+            return $firstName . ', ' . $lastName;
+        }
         return $lastName . ', ' . $firstName;
     }
 }

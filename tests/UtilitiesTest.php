@@ -39,4 +39,9 @@ class UtilitiesTest extends TestCase
     {
         $this->assertEquals('bond, james', Utilities::toNameForEncryption('james', 'bond'));
     }
+
+    public function testSingularNameToNameForEncryption()
+    {
+        $this->assertEquals('james bond, ', Utilities::toNameForEncryption('james bond', ''));
+    }
 }

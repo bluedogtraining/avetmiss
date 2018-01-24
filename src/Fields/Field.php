@@ -34,6 +34,11 @@ abstract class Field
     protected $pad;
 
     /**
+     * @var
+     */
+    protected $spaceRight;
+
+    /**
      * Factory method to create a Field of a given type. Used for method chaining. e.g.:
      *
      *      Field::make('any')
@@ -114,6 +119,13 @@ abstract class Field
         return $new;
     }
 
+    public function spaceRight($space = 0){
+        $new = clone $this;
+        $new->spaceRight = $space;
+
+        return $new;
+    }
+
     /**
      * Get the name set on the Field.
      *
@@ -180,7 +192,7 @@ abstract class Field
         }
 
         // add spaces at the end of the string if required to match the proper length
-        return str_pad($value, $this->length);
+        return str_pad($value, $this->length + $this->spaceRight);
     }
 
     /**

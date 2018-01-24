@@ -21,7 +21,7 @@ class Nat010 extends Fieldset
         parent::__construct(
             [
                 Field::make('any')->name('training_organisation_id')->length(10),
-                Field::make('any')->name('training_organisation_name')->length(100),
+                Field::make('any')->name('training_organisation_name')->length(100)->spaceRight(158),
                 Field::make('any')->name('contact_name')->length(60),
                 Field::make('any')->name('telephone_number')->length(20),
                 Field::make('any')->name('facsimile_number')->length(20),

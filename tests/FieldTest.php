@@ -10,7 +10,7 @@ class FieldTest extends TestCase
     /**
      * @expectedException \InvalidArgumentException
      */
-    public function testlengthShouldBeInt()
+    public function testLengthShouldBeInt()
     {
         $field = Field::make('any')->length('z');
     }
@@ -23,7 +23,7 @@ class FieldTest extends TestCase
         $this->assertEquals('bar       ', $field->render('bar'));
     }
 
-    public function testCutIflengthIsToLong()
+    public function testCutIfLengthIsToLong()
     {
         $field = Field::make('any')->name('foo')->length(10);
 
@@ -86,6 +86,24 @@ class FieldTest extends TestCase
         $field = Field::make('any')->name('foo')->length(10)->pad('.');
 
         $this->assertEquals('.......bar', $field->render('bar'));
+    }
+
+    public function testSpaceRight()
+    {
+        $field = Field::make('any')->name('doge')->length(4)->spaceRight(4);
+        $this->assertEquals('coin    ', $field->render('coin'));
+    }
+
+    public function testSpaceRightWithRightCharacters()
+    {
+        $field = Field::make('any')->name('blue doge training')->length(22)->spaceRight(4);
+        $this->assertEquals('much fail, very wrong,    ', $field->render('much fail, very wrong,'));
+    }
+
+    public function testSpaceRightWithWrongCharacters()
+    {
+        $field = Field::make('any')->name('blue doge training')->length(22)->spaceRight(4);
+        $this->assertNotEquals('much fail, very wrong, wow', $field->render('much fail, very wrong,'));
     }
 
     public function testFieldImmutability()

@@ -34,11 +34,13 @@ class Utilities
      *
      * @return string
      */
-    public static function toNameForEncryption($firstName, $lastName)
+    public static function toNameForEncryption($firstName = '', $lastName = '')
     {
-        if(empty($lastName)){
-            return $firstName . ', ' . $lastName;
+        // if the student has only 1 name, report it as the last name
+        if ($lastName == '') {
+            return $firstName . ',';
         }
+
         return $lastName . ', ' . $firstName;
     }
 }

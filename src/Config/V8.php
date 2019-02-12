@@ -261,7 +261,7 @@ class V8 extends Config
     protected static $clientSex = [
         'M' => 'Male',
         'F' => 'Female',
-        '@' => 'Not Stated'
+        'X' => 'Other'
     ];
 
     /**

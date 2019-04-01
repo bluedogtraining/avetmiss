@@ -226,7 +226,8 @@ class V8 extends Config
         'Dr'   => 'Dr',
         'Rev'  => 'Rev',
         'Hon'  => 'Hon',
-        'Sir'  => 'Sir'
+        'Sir'  => 'Sir',
+        'Mx'   => 'Mx'
     ];
 
     /**

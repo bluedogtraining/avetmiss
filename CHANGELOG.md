@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.4.0 - 2019-10-24
+
+* Support Laravel versions 6 and 7
+
 ## 3.0.2 - 2015-07-09
 
 * Add NAT file descriptions

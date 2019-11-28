@@ -44,4 +44,9 @@ class UtilitiesTest extends TestCase
     {
         $this->assertEquals('james bond,', Utilities::toNameForEncryption('james bond', ''));
     }
+
+    public function testMiddleNameToNameForEncryption()
+    {
+        $this->assertEquals("bond, james herbert", Utilities::toNameForEncryption("james", "bond", "herbert"));
+    }
 }

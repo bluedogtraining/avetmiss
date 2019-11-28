@@ -32,15 +32,21 @@ class Utilities
      * @param string $firstName
      * @param string $lastName
      *
+     * @param string $middleName
+     *
      * @return string
      */
-    public static function toNameForEncryption($firstName = '', $lastName = '')
+    public static function toNameForEncryption($firstName = '', $lastName = '', $middleName = '')
     {
         // if the student has only 1 name, report it as the last name
-        if ($lastName == '') {
+        if ($lastName == '' && $middleName == '') {
             return $firstName . ',';
         }
 
-        return $lastName . ', ' . $firstName;
+        if($lastName == '' && $middleName != '') {
+            return $firstName . ', ' . $middleName;
+        }
+
+        return $lastName . ', ' . $firstName . " " . $middleName;
     }
 }

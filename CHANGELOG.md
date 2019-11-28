@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 4.5.0 - 2019-11-29
+
+* Add support for middle name to nameForEncryption utility
+* Update PHP version to 5.4 (package already contained 5.3 breaking short array syntax '[ ]' )
+
 ## 4.4.0 - 2019-10-24
 
 * Support Laravel versions 6 and 7
